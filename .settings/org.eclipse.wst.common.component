@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="HospitalManagmentSystem">
+        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <dependent-module archiveName="jboss-logging-3.3.0.Final.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/D:/CS degree/2nd year/Enterprises Application Development/Hibernet/Hibernate Jars/jboss-logging-3.3.0.Final.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="antlr-2.7.7.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/D:/CS degree/2nd year/Enterprises Application Development/Hibernet/Hibernate Jars/antlr-2.7.7.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="dom4j-1.6.1.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/D:/CS degree/2nd year/Enterprises Application Development/Hibernet/Hibernate Jars/dom4j-1.6.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="hibernate-commons-annotations-5.0.1.Final.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/D:/CS degree/2nd year/Enterprises Application Development/Hibernet/Hibernate Jars/hibernate-commons-annotations-5.0.1.Final.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="classmate-1.3.0.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/D:/CS degree/2nd year/Enterprises Application Development/Hibernet/Hibernate Jars/classmate-1.3.0.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="hibernate-jpa-2.1-api-1.0.0.Final.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/D:/CS degree/2nd year/Enterprises Application Development/Hibernet/Hibernate Jars/hibernate-jpa-2.1-api-1.0.0.Final.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="javassist-3.20.0-GA.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/D:/CS degree/2nd year/Enterprises Application Development/Hibernet/Hibernate Jars/javassist-3.20.0-GA.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jboss-transaction-api_1.2_spec-1.0.1.Final.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/D:/CS degree/2nd year/Enterprises Application Development/Hibernet/Hibernate Jars/jboss-transaction-api_1.2_spec-1.0.1.Final.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="hibernate-core-5.2.10.Final.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/D:/CS degree/2nd year/Enterprises Application Development/Hibernet/Hibernate Jars/hibernate-core-5.2.10.Final.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jandex-2.0.3.Final.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/D:/CS degree/2nd year/Enterprises Application Development/Hibernet/Hibernate Jars/jandex-2.0.3.Final.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="context-root" value="HospitalManagmentSystem"/>
+        <property name="java-output-path" value="/HospitalManagmentSystem/build/classes"/>
+    </wb-module>
+</project-modules>
