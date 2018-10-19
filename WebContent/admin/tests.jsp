@@ -170,7 +170,7 @@
 
 				$.ajax({
 					method : "get",
-					url : "tests-doTest.jsp",
+					url : "tests/tests-doTest.jsp",
 					success : function(data) {
 						$("#content-form").children().remove();
 						$("#content-form").append(data);
@@ -186,7 +186,7 @@
 
 				$.ajax({
 					method : "get",
-					url : "tests-invoiceResults.jsp",
+					url : "tests/tests-invoiceResults.jsp",
 					success : function(data) {
 						$("#content-form").children().remove();
 						$("#content-form").append(data);

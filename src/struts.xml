@@ -16,5 +16,11 @@
             <result name="input">/patientRegistration.jsp</result>
         </action>
         
+        <action name="doTest" class="com.actions.Tests">
+            <result name="success">admin/index.jsp</result>
+            <result name="error">/error.jsp</result>
+            <result name="input">/patientRegistration.jsp</result>
+        </action>
+        
     </package>
 </struts>
