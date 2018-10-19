@@ -32,6 +32,9 @@
         <dependent-module archiveName="jandex-2.0.3.Final.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/D:/CS degree/2nd year/Enterprises Application Development/Hibernet/Hibernate Jars/jandex-2.0.3.Final.jar">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="mysql-connector-java-8.0.12.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/D:/softwares/mysql-connector-java-8.0.12/mysql-connector-java-8.0.12.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="context-root" value="HospitalManagmentSystem"/>
         <property name="java-output-path" value="/HospitalManagmentSystem/build/classes"/>
     </wb-module>

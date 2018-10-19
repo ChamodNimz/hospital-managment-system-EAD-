@@ -2,6 +2,8 @@ package com.actions;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import frm.helpers.Validater;
+
 public class Tests extends ActionSupport {
 
 	private int t_id;
@@ -12,8 +14,8 @@ public class Tests extends ActionSupport {
 	private String telephone;
 	private int total;
 	private String email;
-	private int issue_flag;
-	private int paid_flag;
+	private int issue_flag=0;
+	private int paid_flag=0;
 	
 	
 	public int getT_id() {
@@ -77,18 +79,20 @@ public class Tests extends ActionSupport {
 		this.paid_flag = paid_flag;
 	}
 	
+	
+	
+	@Override
+	public void addFieldError(String fieldName, String errorMessage) {
+		
+		super.addFieldError(fieldName, errorMessage);
+	}
+	
 	@Override
 	public String execute() throws Exception {
 		
-		System.out.println(f_name);
-		System.out.println(l_name);
-		System.out.println(telephone);
-		System.out.println(test_name);
-		System.out.println(date);
+		TestsManager.createTest(this); 
+	
 		return SUCCESS;
 	}
-	
-	
-	
-	
+		
 }

@@ -215,6 +215,14 @@
 
 			});
 
+			//end of navigation part for this
+
+			//fill the total when selected test-name
+			$('#test_name').on("change",function(){
+				var test=this.value;
+				alert(test);
+			});
+
 		});
 	</script>
 </body>
