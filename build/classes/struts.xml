@@ -23,15 +23,15 @@
         </action>
         
         <!-- fill data  payment form for test-invoiceResult page -->
-        <action name="payForResults" class="com.actions.Tests" method="payForResults">
-            <result name="success">/admin/index.jsp</result>
+        <action name="getTests" class="com.actions.Tests" method="getTests">
+            <result name="success">/admin/tests-invoiceResults.jsp</result>
             <result name="error">/error.jsp</result>
             <result name="input">/tests.jsp</result>
         </action>
         
         <!-- payment when customer confirms the results and pays for them -->
         <action name="payForResults" class="com.actions.Tests" method="payForResults">
-            <result name="success">/admin/index.jsp</result>
+            <result name="success">/admin/tests.jsp</result>
             <result name="error">/error.jsp</result>
             <result name="input">/tests.jsp</result>
         </action>

@@ -1,7 +1,7 @@
 package com.actions;
 
+import java.util.List;
 import com.opensymphony.xwork2.ActionSupport;
-
 import frm.helpers.Validater;
 
 public class Tests extends ActionSupport {
@@ -17,10 +17,22 @@ public class Tests extends ActionSupport {
 	private int issue_flag=0;
 	private int paid_flag=0;
 	
+	//special fields 
+	private List<Tests> list;
 	
+	//special getters and setters
+	public List<Tests> getList() {
+		return list;
+	}
+	public void setList(List<Tests> list) {
+		this.list = list;
+	}
 	public int getT_id() {
 		return t_id;
 	}
+	
+	
+	//normal persistence class getters and setters
 	public void setT_id(int t_id) {
 		this.t_id = t_id;
 	}
@@ -87,45 +99,61 @@ public class Tests extends ActionSupport {
 		super.addFieldError(fieldName, errorMessage);
 	}
 	
-	
-	
-	@Override
-	public void validate() {
-		
-		super.validate();
+	public boolean validation() {
 		
 		Validater validater = new Validater();
 		
-		
+		//f_name validation
 		if(!validater.nameIsValid(f_name)) {
 			
 			addFieldError("f_name", validater.getError());
+			return false;
 		}
 		
+		//l_name validation
 		if(!validater.nameIsValid(l_name)) {
 			
 			addFieldError("l_name", validater.getError());
+			return false;
 		}
 		
+		//telephone validation
 		if(!validater.phoneNoIsValid(telephone)) {
 			
 			addFieldError("telephone", validater.getError());
+			return false;
 		}
+		return true;
 	}
+	
+
 	
 	@Override
 	public String execute() throws Exception {
 		
-		TestsManager.createTest(this); 
+		if(validation()) {
+			
+			TestsManager.createTest(this); 
+			return SUCCESS;
+		}
+		else {
+			return INPUT;
+		}
+		
 	
-		return SUCCESS;
+		
 	}
 	
 	
 	/*
 	 * to fill data with tests that has submitted
+	 * 
 	 */
-	public void getSearchNames() {
+	public String getTests() {
+	
+		this.list=TestsManager.getTestById(t_id);
+		
+		return SUCCESS;
 		
 	}
 	
@@ -133,8 +161,12 @@ public class Tests extends ActionSupport {
 	 * do payment when customer pays for test results
 	 * 
 	 */
-	public void payForResults() {
+	public String  payForResults() {
 		
+		System.out.println(f_name);
+		System.out.println(t_id);
+		TestsManager.pay(t_id,paid_flag);
+		return SUCCESS;
 	}
 	
 	

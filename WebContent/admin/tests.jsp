@@ -115,8 +115,8 @@
 	<div class="row">
 		<div class="col-md-5">
 			<div class="form-group">
-				<label class="form-label">Testname</label> 
-				<select name="test_name" id="test_name" class="form-control">
+				<label class="form-label">Test name</label> 
+				<select name="test_name" id="test_name" class="form-control" required>
 					<option value=""></option>
 					<option value="ECG">ECG</option>
 					<option value="CAT Scan">CAT Scan</option>

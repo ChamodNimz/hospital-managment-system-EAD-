@@ -1,15 +1,20 @@
 package com.actions;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
 
 public class TestsManager {
 	
 	
-
-public static void createTest(Tests test) {
+/*
+ * to save a test
+ */
+	public static void createTest(Tests test) {
 	
 	
 		Configuration configuration = new Configuration().configure();
@@ -23,11 +28,56 @@ public static void createTest(Tests test) {
 		session.save(test);
 		
 		transaction.commit();
+		session.close();
+		
+	}
+	
+	/*
+	 * get a test by id to fill the search form in test-invoiceResult page
+	 */
+	public static List<Tests> getTestById(int id){
+		
+		Configuration configuration = new Configuration().configure();
+		SessionFactory sessionFactory = configuration.buildSessionFactory();		
+		Session session = sessionFactory.getCurrentSession();
+		Transaction transaction = session.beginTransaction();	
+		
+		String hql="from Tests where t_id=:id";
+		Query query = session.createQuery(hql);
+		query.setParameter("id",id);
+		
+		List<Tests> list = query.list();
+		transaction.commit();
+		return list;
+	}
+	
+	/*
+	 * to save and close the transaction between customer and hospital on test results
+	 */
+	public static boolean pay(int id,int paid_flag){
+		
+		Configuration configuration = new Configuration().configure();
+		SessionFactory sessionFactory = configuration.buildSessionFactory();		
+		Session session = sessionFactory.getCurrentSession();
+		Transaction transaction = session.beginTransaction();	
+		
+		String hql="update Tests set issue_flag=:if , paid_flag=:pf where t_id=:id";
+		Query query = session.createQuery(hql);
+		
+		query.setParameter("id",id);
+		query.setParameter("if",1);
+		query.setParameter("pf",paid_flag);
+	
+		if(query.executeUpdate()==1) {
+			transaction.commit();
+			return true ;
+		}
+		else {
+			return false;
+		}
 		
 	}
 
-public static void getNames() {
 	
-}
 	
 }
