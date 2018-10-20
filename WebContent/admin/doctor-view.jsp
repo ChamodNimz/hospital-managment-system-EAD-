@@ -1,3 +1,4 @@
+<%@ taglib uri="/struts-tags" prefix="s"%>
 <!doctype html>
 <html lang="en" dir="ltr">
 <head>
@@ -17,28 +18,29 @@
 <link rel="icon" href="./favicon.ico" type="image/x-icon" />
 <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico" />
 <!-- Generated: 2018-04-16 09:29:05 +0200 -->
-<title>Empty page template</title>
+
+<title>Doctors Section</title>
 <%@  include file="layouts/admin-panel-header-links.jsp"%>
+
 </head>
 <body class="">
 	<div class="page">
 		<div class="page-main">
 			<%@ include file="layouts/admin-panel-navigation.jsp"%>
 			<div class="my-3 my-md-5"></div>
+
 			<div class="container-fluid">
 				<div class="row row-cards">
-
-					<div class="col-lg-4">
+					<!------------------------------------------ navigation with cards --------------------------------------->
+					<div class="col-lg-3">
 						<div class="card p-3">
 							<div class="card-header">
 								<h3 class="card-title mb-3">Quick navigation</h3>
 							</div>
 
-							<!------------------------------------------ navigation with cards --------------------------------------->
-
 							<div class="row row-cards mt-3">
 
-								<div class="col-sm-6 col-lg-6 ">
+								<div class="col-sm-12 col-lg-12 ">
 									<div class="card p-3">
 										<div class="d-flex align-items-center">
 											<span class="stamp stamp-md bg-blue mr-3"> <i
@@ -46,15 +48,18 @@
 											</span>
 											<div>
 												<h4 class="m-0">
-													<a href="javascript:void(0)">Tests <small></small></a>
+													<a href="doctor-index.jsp" class="btn btn-info" style="width: 100px;"
+														id="mailReport">
+														Add doctor<small></small>
+													</a>
 												</h4>
-												<small class="text-muted">12 in the queue</small>
+												<small class="text-muted"></small>
 											</div>
 										</div>
 									</div>
 								</div>
 
-								<div class="col-sm-6 col-lg-6">
+								<div class="col-sm-12 col-lg-12">
 									<div class="card p-3">
 										<div class="d-flex align-items-center">
 											<span class="stamp stamp-md bg-blue mr-3"> <i
@@ -62,7 +67,10 @@
 											</span>
 											<div>
 												<h4 class="m-0">
-													<a href="javascript:void(0)">Doctors <small></small></a>
+													<a href="viewDoctors" class="btn btn-info" style="width: 100px;"
+														id="mailReport">
+														View<small></small>
+													</a>
 												</h4>
 												<small class="text-muted"></small>
 											</div>
@@ -70,15 +78,19 @@
 									</div>
 								</div>
 
-								<div class="col-sm-6 col-lg-6">
+
+								<div class="col-sm-12 col-lg-12">
 									<div class="card p-3">
 										<div class="d-flex align-items-center">
 											<span class="stamp stamp-md bg-blue mr-3"> <i
-												class="fe fe-dollar-sign"></i>
+												class="fa fa-envelope"></i>
 											</span>
 											<div>
 												<h4 class="m-0">
-													<a href="javascript:void(0)">Payment <small></small></a>
+													<a href="doctor-remove.jsp" class="btn btn-info" style="width: 100px;"
+														id="mailReport">
+														Remove<small></small>
+													</a>
 												</h4>
 												<small class="text-muted"></small>
 											</div>
@@ -86,15 +98,18 @@
 									</div>
 								</div>
 
-								<div class="col-sm-6 col-lg-6">
+								<div class="col-sm-12 col-lg-12">
 									<div class="card p-3">
 										<div class="d-flex align-items-center">
 											<span class="stamp stamp-md bg-blue mr-3"> <i
-												class="fa fa-wheelchair"></i>
+												class="fa fa-envelope"></i>
 											</span>
 											<div>
 												<h4 class="m-0">
-													<a href="javascript:void(0)">Patients <small></small></a>
+													<a href="doctor-update.jsp" class="btn btn-info" style="width: 100px;"
+														id="mailReport">
+														Update<small></small>
+													</a>
 												</h4>
 												<small class="text-muted"></small>
 											</div>
@@ -102,70 +117,7 @@
 									</div>
 								</div>
 
-								<div class="col-sm-6 col-lg-6">
-									<div class="card p-3">
-										<div class="d-flex align-items-center">
-											<span class="stamp stamp-md bg-blue mr-3"> <i
-												class="fe fe-users"></i>
-											</span>
-											<div>
-												<h4 class="m-0">
-													<a href="javascript:void(0)">Users <small></small></a>
-												</h4>
-												<small class="text-muted"></small>
-											</div>
-										</div>
-									</div>
-								</div>
 
-								<div class="col-sm-6 col-lg-6">
-									<div class="card p-3">
-										<div class="d-flex align-items-center">
-											<span class="stamp stamp-md bg-blue mr-3"> <i
-												class="fe fe-bookmark"></i>
-											</span>
-											<div>
-												<h4 class="m-0">
-													<a href="javascript:void(0)">Channel <small></small></a>
-												</h4>
-												<small class="text-muted"></small>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<div class="col-sm-6 col-lg-6">
-									<div class="card p-3">
-										<div class="d-flex align-items-center">
-											<span class="stamp stamp-md bg-blue mr-3"> <i
-												class="fe fe-file"></i>
-											</span>
-											<div>
-												<h4 class="m-0">
-													<a href="javascript:void(0)">Reports <small>System
-															analytics</small></a>
-												</h4>
-												<small class="text-muted"></small>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<div class="col-sm-6 col-lg-6">
-									<div class="card p-3">
-										<div class="d-flex align-items-center">
-											<span class="stamp stamp-md bg-blue mr-3"> <i
-												class="fa fa-bed"></i>
-											</span>
-											<div>
-												<h4 class="m-0">
-													<a href="javascript:void(0)">Wards <small></small></a>
-												</h4>
-												<small class="text-muted"></small>
-											</div>
-										</div>
-									</div>
-								</div>
 							</div>
 
 
@@ -174,14 +126,47 @@
 
 					</div>
 
+					<div class="col-lg-8">
+						<div class="container-fluid">
+							
+								<div class="card p-3" id="content-form">
+									<div class="card-header mb-5">
+										<h2 class=" mb-3 text-info">View doctors</h2>
+										
+										
+									</div>
+									<table id="table_" class="table">
+											<thead>
+												<th>Doctor id</th>
+												<th>Doctor name</th>
+												<th>specialty</th>
+												<th>E-mail</th>
+												<th>Telephone</th>
+											</thead>
+											<tbody>
+											<s:iterator value="list">
+												<td><s:property value="doc_id" /></td>
+												<td><s:property value="doc_name" /></td>
+												<td><s:property value="doc_specialty" /></td>
+												<td><s:property value="email" /></td>
+												<td><s:property value="telephone" /></td>
+											</s:iterator>
+												
+											</tbody>
+										</table>
+										
+								</div>
+							
+						</div>
+					</div>
+
+
 
 				</div>
 
 			</div>
-
-
-
 		</div>
+
 		<div class="footer">
 			<div class="container">
 				<div class="row">
@@ -221,5 +206,6 @@
 		</div>
 
 	</div>
+
 </body>
 </html>

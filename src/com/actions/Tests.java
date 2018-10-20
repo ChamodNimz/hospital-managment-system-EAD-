@@ -3,6 +3,7 @@ package com.actions;
 import java.util.List;
 import com.opensymphony.xwork2.ActionSupport;
 import frm.helpers.Validater;
+import managers.TestsManager;
 
 public class Tests extends ActionSupport {
 

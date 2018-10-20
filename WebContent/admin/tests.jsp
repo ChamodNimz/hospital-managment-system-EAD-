@@ -1,4 +1,4 @@
-<%@ taglib uri="/struts-tags" prefix="s" %>
+<%@ taglib uri="/struts-tags" prefix="s"%>
 <!doctype html>
 <html lang="en" dir="ltr">
 <head>
@@ -67,8 +67,7 @@
 											<div>
 												<h4 class="m-0">
 													<a href="tests-invoiceResults.jsp" class="btn btn-info"
-														id="invoiceResults">
-														Invoice Results <small></small>
+														id="invoiceResults"> Invoice Results <small></small>
 													</a>
 												</h4>
 												<small class="text-muted"></small>
@@ -109,79 +108,88 @@
 						<div class="container-fluid">
 							<div class="row row-cards">
 								<div class="card p-3" id="content-form">
-										<%@ page import = "java.io.*,java.util.*" %>
-<%@ page import = "javax.servlet.*,java.text.*" %>
-<form action="doTest" method="post">
-	<div class="row">
-		<div class="col-md-5">
-			<div class="form-group">
-				<label class="form-label">Test name</label> 
-				<select name="test_name" id="test_name" class="form-control" required>
-					<option value=""></option>
-					<option value="ECG">ECG</option>
-					<option value="CAT Scan">CAT Scan</option>
-					<option value="Blood test">Blood test</option>
-					<option value="X-Ray">X-Ray</option>
-				</select>
-			</div>
-		</div>
-		<div class="col-sm-6 col-md-3">
-			<div class="form-group">
-				<label class="form-label">Date</label> <input type="text"
-					class="form-control" placeholder="" readonly name="date" value="<%
+									<%@ page import="java.io.*,java.util.*"%>
+									<%@ page import="javax.servlet.*,java.text.*"%>
+									<form action="doTest" method="post">
+										<div class="row">
+											<div class="col-md-5">
+												<div class="form-group">
+													<label class="form-label">Test name</label> <select
+														name="test_name" id="test_name" class="form-control"
+														required>
+														<option value=""></option>
+														<option value="ECG">ECG</option>
+														<option value="CAT Scan">CAT Scan</option>
+														<option value="Blood test">Blood test</option>
+														<option value="X-Ray">X-Ray</option>
+													</select>
+												</div>
+											</div>
+											<div class="col-sm-6 col-md-3">
+												<div class="form-group">
+													<label class="form-label">Date</label> <input type="text"
+														class="form-control" placeholder="" readonly name="date"
+														value="<%
          Date dNow = new Date();
          SimpleDateFormat ft = 
          new SimpleDateFormat ("yyyy-MM-dd");
          out.print(  ft.format(dNow));
       %>">
-					
-			</div>
-		</div>
 
-		<div class="col-sm-6 col-md-4">
-				<div class="form-group">
-					<label class="form-label">Email</label> <input type="email"
-						class="form-control" placeholder="" name="email" required>
-				</div>
-			</div>
-		
-		<div class="col-sm-6 col-md-6">
-			<div class="form-group">
-				<label class="form-label">First Name</label> <input type="text"
-					class="form-control" placeholder="first Name" name="f_name"  >
-					<s:fielderror fieldName="f_name" style="color:red;list-style:none;"/>
-			</div>
-		</div>
-		<div class="col-sm-6 col-md-6">
-			<div class="form-group">
-				<label class="form-label">Last Name</label> <input type="text"
-					class="form-control" placeholder="Last Name" name="l_name" required >
-					<s:fielderror fieldName="l_name" style="color:red;list-style:none;"/>
-			</div>
-		</div>
-		<div class="col-md-12">
-			<div class="form-group">
-				<label class="form-label">Telephone</label> <input  type="text"
-					class="form-control" required name="telephone" placeholder="Telephone"
-					>
-					<s:fielderror fieldName="telephone" style="color:red;list-style:none;"/>
-			</div>
-		</div>
-		<div class="col-sm-6 col-md-4">
-			<div class="form-group">
-				<label class="form-label">Total</label> <input type="text"
-					class="form-control" placeholder="" readonly required name="total" id="totalBill">
-					<s:fielderror fieldName="total" style="color:red;list-style:none;"/>
-			</div>
-		</div>
-		
-	</div>
+												</div>
+											</div>
 
-	<button class="btn btn-info mt-4">Submit</button>
+											<div class="col-sm-6 col-md-4">
+												<div class="form-group">
+													<label class="form-label">Email</label> <input type="email"
+														class="form-control" placeholder="" name="email" required>
+												</div>
+											</div>
 
-</form>
+											<div class="col-sm-6 col-md-6">
+												<div class="form-group">
+													<label class="form-label">First Name</label> <input
+														type="text" class="form-control" placeholder="first Name"
+														name="f_name">
+													<s:fielderror fieldName="f_name"
+														style="color:red;list-style:none;" />
+												</div>
+											</div>
+											<div class="col-sm-6 col-md-6">
+												<div class="form-group">
+													<label class="form-label">Last Name</label> <input
+														type="text" class="form-control" placeholder="Last Name"
+														name="l_name" required>
+													<s:fielderror fieldName="l_name"
+														style="color:red;list-style:none;" />
+												</div>
+											</div>
+											<div class="col-md-12">
+												<div class="form-group">
+													<label class="form-label">Telephone</label> <input
+														type="text" class="form-control" required name="telephone"
+														placeholder="Telephone">
+													<s:fielderror fieldName="telephone"
+														style="color:red;list-style:none;" />
+												</div>
+											</div>
+											<div class="col-sm-6 col-md-4">
+												<div class="form-group">
+													<label class="form-label">Total</label> <input type="text"
+														class="form-control" placeholder="" readonly required
+														name="total" id="totalBill">
+													<s:fielderror fieldName="total"
+														style="color:red;list-style:none;" />
+												</div>
+											</div>
 
-<script>
+										</div>
+
+										<button class="btn btn-info mt-4">Submit</button>
+
+									</form>
+
+									<script>
 	$(document).ready(function(){
 		
 		//fill the total when selected test-name
@@ -257,6 +265,6 @@
 		</div>
 
 	</div>
-	
+
 </body>
 </html>

@@ -63,6 +63,24 @@ public class Validater {
 		return true;
 	}
 	
+	public  boolean isOnlyLetters(String input) {
+		
+		String pattern="^[A-Za-z\\s_\\']{1,100}$";
+		Pattern obj = Pattern.compile(pattern);
+		
+		Matcher m = obj.matcher(input);
+		
+		if(input.trim().equals("")) {
+			this.error="Field should not be empty";
+			return false;
+		}
+		else if(!m.matches()) {
+			this.error="Invalid inputs provided. Do not use numbers and simbols";
+			return false;
+		}
+		return true;
+	}
+	
 	public  boolean phoneNoIsValid(String input) {
 		
 		String pattern="^[0-9]{10}$";

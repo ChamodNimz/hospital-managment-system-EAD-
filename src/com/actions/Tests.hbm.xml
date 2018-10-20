@@ -2,50 +2,50 @@
 <!DOCTYPE hibernate-mapping PUBLIC
 "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
- 
+
 <hibernate-mapping>
- 
-    <class name="com.actions.Tests" table="tests">
- 
-        <id name="t_id" column="t_id">
-            <generator class="native" />
-        </id>
- 
-        <property name="test_name">
-            <column name="test_name" length="30" not-null="true" />
-        </property>
-        
-        <property name="date">
-            <column name="date" length="30" not-null="true" />
-        </property>
- 
- 		<property name="f_name">
-            <column name="f_name" length="20" not-null="true" />
-        </property>
-        
-        <property name="l_name">
-            <column name="l_name" length="20" not-null="true" />
-        </property>
- 
-        <property name="telephone">
-            <column name="telephone" length="30" not-null="true" />
-        </property>
-        
-        <property name="total">
-            <column name="total" length="11" not-null="true" />
-        </property>
-        
-        <property name="email">
-            <column name="email" length="100" not-null="true" />
-        </property>
-        
-        <property name="issue_flag">
-            <column name="issue_flag" length="2" not-null="true" />
-        </property>
-        
-        <property name="paid_flag">
-            <column name="paid_flag" length="2" not-null="true" />
-        </property>
- 
-    </class>
+
+	<class name="com.actions.Tests" table="tests">
+
+		<id name="t_id" column="t_id">
+			<generator class="native" />
+		</id>
+
+		<property name="test_name">
+			<column name="test_name" length="30" not-null="true" />
+		</property>
+
+		<property name="date">
+			<column name="date" length="30" not-null="true" />
+		</property>
+
+		<property name="f_name">
+			<column name="f_name" length="20" not-null="true" />
+		</property>
+
+		<property name="l_name">
+			<column name="l_name" length="20" not-null="true" />
+		</property>
+
+		<property name="telephone">
+			<column name="telephone" length="30" not-null="true" />
+		</property>
+
+		<property name="total">
+			<column name="total" length="11" not-null="true" />
+		</property>
+
+		<property name="email">
+			<column name="email" length="100" not-null="true" />
+		</property>
+
+		<property name="issue_flag">
+			<column name="issue_flag" length="2" not-null="true" />
+		</property>
+
+		<property name="paid_flag">
+			<column name="paid_flag" length="2" not-null="true" />
+		</property>
+
+	</class>
 </hibernate-mapping>

@@ -2,39 +2,58 @@
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN" "http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
-    <package name="com.actions" extends="struts-default">
-    
-        <action name="adminLogin" class="com.actions.Admin">
-            <result name="success">admin/index.jsp</result>
-            <result name="error">/admin/404.html</result>
-            <result name="input">/login.jsp</result>
-        </action>
-        
-        <action name="patientRegister" class="com.actions.Patient">
-            <result name="success">admin/admin-dashboard.jsp</result>
-            <result name="error">/error.jsp</result>
-            <result name="input">/patientRegistration.jsp</result>
-        </action>
-        
-        <action name="doTest" class="com.actions.Tests">
-            <result name="success">/admin/index.jsp</result>
-            <result name="error">/error.jsp</result>
-            <result name="input">/admin/tests.jsp</result>
-        </action>
-        
-        <!-- fill data  payment form for test-invoiceResult page -->
-        <action name="getTests" class="com.actions.Tests" method="getTests">
-            <result name="success">/admin/tests-invoiceResults.jsp</result>
-            <result name="error">/error.jsp</result>
-            <result name="input">/tests.jsp</result>
-        </action>
-        
-        <!-- payment when customer confirms the results and pays for them -->
-        <action name="payForResults" class="com.actions.Tests" method="payForResults">
-            <result name="success">/admin/tests.jsp</result>
-            <result name="error">/error.jsp</result>
-            <result name="input">/tests.jsp</result>
-        </action>
-        
-    </package>
+	<package name="com.actions" extends="struts-default">
+
+		<action name="adminLogin" class="com.actions.Admin">
+			<result name="success">admin/index.jsp</result>
+			<result name="error">/admin/404.html</result>
+			<result name="input">/login.jsp</result>
+		</action>
+
+		<action name="patientRegister" class="com.actions.Patient">
+			<result name="success">admin/admin-dashboard.jsp</result>
+			<result name="error">/error.jsp</result>
+			<result name="input">/patientRegistration.jsp</result>
+		</action>
+
+		<action name="doTest" class="com.actions.Tests">
+			<result name="success">/admin/index.jsp</result>
+			<result name="error">/error.jsp</result>
+			<result name="input">/admin/tests.jsp</result>
+		</action>
+
+		<!-- fill data payment form for test-invoiceResult page -->
+		<action name="getTests" class="com.actions.Tests"
+			method="getTests">
+			<result name="success">/admin/tests-invoiceResults.jsp</result>
+			<result name="error">/error.jsp</result>
+			<result name="input">/tests.jsp</result>
+		</action>
+
+		<!-- payment when customer confirms the results and pays for them -->
+		<action name="payForResults" class="com.actions.Tests"
+			method="payForResults">
+			<result name="success">/admin/tests.jsp</result>
+			<result name="error">/error.jsp</result>
+			<result name="input">/tests.jsp</result>
+		</action>
+
+
+		<!-- doctor section -->
+		
+		<!-- add doctor calls default execute method -->
+		<action name="addDoctor" class="com.actions.Doctor">
+			<result name="success">/admin/doctor-index.jsp</result>
+			<result name="error">/error.jsp</result>
+			<result name="input">/admin/doctor-index.jsp</result>
+		</action>
+		
+		<!-- get doctors details to view -->
+		<action name="viewDoctors" class="com.actions.Doctor" method="viewDoctors">
+			<result name="success">/admin/doctor-view.jsp</result>
+			<result name="error">/error.jsp</result>
+			<result name="input">/admin/doctor-view.jsp</result>
+		</action>
+
+	</package>
 </struts>

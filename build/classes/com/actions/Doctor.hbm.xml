@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.actions.Doctor" table="doctors">
+
+		<id name="doc_id" column="doc_id">
+			<generator class="native" />
+		</id>
+
+		<property name="doc_name">
+			<column name="doc_name" length="30" not-null="true" />
+		</property>
+
+		<property name="doc_specialty">
+			<column name="doc_specialty" length="40" not-null="true" />
+		</property>
+
+		<property name="telephone">
+			<column name="telephone" length="12" not-null="true" />
+		</property>
+
+
+		<property name="email">
+			<column name="email" length="100" not-null="true" />
+		</property>
+
+
+
+	</class>
+</hibernate-mapping>
