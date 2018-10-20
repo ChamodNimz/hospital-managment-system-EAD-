@@ -25,5 +25,9 @@ public static void createTest(Tests test) {
 		transaction.commit();
 		
 	}
+
+public static void getNames() {
+	
+}
 	
 }

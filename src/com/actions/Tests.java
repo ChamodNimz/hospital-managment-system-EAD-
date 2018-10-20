@@ -87,6 +87,32 @@ public class Tests extends ActionSupport {
 		super.addFieldError(fieldName, errorMessage);
 	}
 	
+	
+	
+	@Override
+	public void validate() {
+		
+		super.validate();
+		
+		Validater validater = new Validater();
+		
+		
+		if(!validater.nameIsValid(f_name)) {
+			
+			addFieldError("f_name", validater.getError());
+		}
+		
+		if(!validater.nameIsValid(l_name)) {
+			
+			addFieldError("l_name", validater.getError());
+		}
+		
+		if(!validater.phoneNoIsValid(telephone)) {
+			
+			addFieldError("telephone", validater.getError());
+		}
+	}
+	
 	@Override
 	public String execute() throws Exception {
 		
@@ -94,5 +120,25 @@ public class Tests extends ActionSupport {
 	
 		return SUCCESS;
 	}
+	
+	
+	/*
+	 * to fill data with tests that has submitted
+	 */
+	public void getSearchNames() {
+		
+	}
+	
+	/*
+	 * do payment when customer pays for test results
+	 * 
+	 */
+	public void payForResults() {
+		
+	}
+	
+	
+	
+	
 		
 }

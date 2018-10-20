@@ -19,6 +19,20 @@
         <action name="doTest" class="com.actions.Tests">
             <result name="success">/admin/index.jsp</result>
             <result name="error">/error.jsp</result>
+            <result name="input">/admin/tests.jsp</result>
+        </action>
+        
+        <!-- fill data  payment form for test-invoiceResult page -->
+        <action name="payForResults" class="com.actions.Tests" method="payForResults">
+            <result name="success">/admin/index.jsp</result>
+            <result name="error">/error.jsp</result>
+            <result name="input">/tests.jsp</result>
+        </action>
+        
+        <!-- payment when customer confirms the results and pays for them -->
+        <action name="payForResults" class="com.actions.Tests" method="payForResults">
+            <result name="success">/admin/index.jsp</result>
+            <result name="error">/error.jsp</result>
             <result name="input">/tests.jsp</result>
         </action>
         

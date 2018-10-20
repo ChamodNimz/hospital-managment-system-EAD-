@@ -45,7 +45,7 @@ public class Validater {
 
 	
 
-	public  String name(String input) {
+	public  boolean nameIsValid(String input) {
 		
 		String pattern="^[A-Za-z\\s_\\']{1,10}$";
 		Pattern obj = Pattern.compile(pattern);
@@ -54,11 +54,49 @@ public class Validater {
 		
 		if(input.trim().equals("")) {
 			this.error="Field should not be empty";
+			return false;
 		}
-		else if(m.matches()) {
+		else if(!m.matches()) {
 			this.error="Invalid inputs provided. Do not use numbers and simbols";
+			return false;
 		}
-		return "1";
+		return true;
+	}
+	
+	public  boolean phoneNoIsValid(String input) {
+		
+		String pattern="^[0-9]{10}$";
+		Pattern obj = Pattern.compile(pattern);
+		Matcher matcher = obj.matcher(input);
+		
+		if(!matcher.matches()) {
+			
+			this.error="Phone no should contain only 10 numbers";
+			return false;
+			
+		}
+		return true;
+		
+	}
+	
+	public boolean isValidNIC(String input) {
+		
+		String pattern="^[0-9]{10}(v|V)$";
+		Pattern obj = Pattern.compile(pattern);
+		Matcher matcher = obj.matcher(input);
+		
+			if(!matcher.matches()) {
+				this.error="NIC should be 9 digits followed by 'v' Nothing other than that";
+				return false;
+			}
+		return true;
+	}
+	
+	public boolean isValidAddress() {
+		
+		String pattern ="^[A-Za-z0-9\\s]{}$";
+		
+		return true;
 	}
 
 
