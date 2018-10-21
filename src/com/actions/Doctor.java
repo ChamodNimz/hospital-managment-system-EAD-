@@ -2,12 +2,16 @@ package com.actions;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.struts2.interceptor.ServletRequestAware;
+
 import com.opensymphony.xwork2.ActionSupport;
 
 import frm.helpers.Validater;
 import managers.DoctorManager;
 
-public class Doctor extends ActionSupport {
+public class Doctor extends ActionSupport implements ServletRequestAware {
 
 	// normal properties
 	private int doc_id;
@@ -18,6 +22,8 @@ public class Doctor extends ActionSupport {
 
 	// special properties
 	List<Doctor> list;
+	private HttpServletRequest request;
+	
 
 	// normal properties getters and setters
 	public int getDoc_id() {
@@ -96,9 +102,33 @@ public class Doctor extends ActionSupport {
 
 	//view doctors functionality
 	public String viewDoctors() {
+		
 		this.list=DoctorManager.getDoctors();
+		
 		return SUCCESS;
 	}
+	
+	//get doctor by id method 
+	public String getDoctorById() {
+		this.list=DoctorManager.getDoctorById(doc_id);
+		
+		return SUCCESS;
+	}
+	
+	//update doctor method
+	public String updateDoctor() {
+		
+		DoctorManager.updateDoctor(this);
+		return SUCCESS;
+	}
+	
+	//remove a doctor
+	public String removeDoctor() {
+		
+		DoctorManager.removeDoctor(doc_id);
+		return SUCCESS;
+	}
+	
 
 	
 	public boolean validation() {
@@ -126,6 +156,12 @@ public class Doctor extends ActionSupport {
 			return false;
 		}
 		return true;
+	}
+
+	@Override
+	public void setServletRequest(HttpServletRequest request) {
+		this.request= request;
+		
 	}
 
 }

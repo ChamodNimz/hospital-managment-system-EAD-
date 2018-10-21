@@ -20,7 +20,53 @@
 <!-- Generated: 2018-04-16 09:29:05 +0200 -->
 
 <title>Doctors Section</title>
-<%@  include file="layouts/admin-panel-header-links.jsp"%>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,500,500i,600,600i,700,700i&amp;subset=latin-ext">
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+  
+	  <script
+	src="assets/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.18/af-2.3.2/b-1.5.4/b-html5-1.5.4/b-print-1.5.4/datatables.min.css"/>
+ 
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.18/af-2.3.2/b-1.5.4/b-html5-1.5.4/b-print-1.5.4/datatables.min.js"></script>
+
+
+
+  
+	
+	<script  type="text/javascript">
+	 $(document).ready( function () {
+		    $('#tbl').DataTable();
+		});
+
+	</script>
+	<script src="./assets/js/require.min.js"></script>
+	<!-- Dashboard Core -->
+<link href="./assets/css/dashboard.css" rel="stylesheet" />
+<script src="./assets/js/dashboard.js"></script>
+<!-- c3.js Charts Plugin -->
+<link href="./assets/plugins/charts-c3/plugin.css" rel="stylesheet" />
+<script src="./assets/plugins/charts-c3/plugin.js"></script>
+<!-- Google Maps Plugin -->
+<link href="./assets/plugins/maps-google/plugin.css" rel="stylesheet" />
+<script src="./assets/plugins/maps-google/plugin.js"></script>
+<!-- Input Mask Plugin -->
+<script src="./assets/plugins/input-mask/plugin.js"></script>
+<script>
+      requirejs.config({
+          baseUrl: '.'
+      });
+    </script>
+
+
+
+	
+
 
 </head>
 <body class="">
@@ -31,80 +77,39 @@
 
 			<div class="container-fluid">
 				<div class="row row-cards">
-					<!------------------------------------------ navigation with cards --------------------------------------->
-					<div class="col-lg-2">
-						<div class="card p-3">
-							<div class="card-header">
-								<h3 class="card-title mb-3">Quick navigation</h3>
-							</div>
-
-							<div class="row row-cards mt-3">
-
-								<div class="col-sm-12 col-lg-12 ">
-									<div class="card p-3">
-										<div class="d-flex align-items-center">
-											<span class="stamp stamp-md bg-blue mr-3"> <i
-												class="fe fe-activity"></i>
-											</span>
-											<div>
-												<h4 class="m-0">
-													<a href="doctor-index.jsp" class="btn btn-info" style="width: 100px;"
-														id="mailReport">
-														Add doctor<small></small>
-													</a>
-												</h4>
-												<small class="text-muted"></small>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<div class="col-sm-12 col-lg-12">
-									<div class="card p-3">
-										<div class="d-flex align-items-center">
-											<span class="stamp stamp-md bg-blue mr-3"> <i
-												class="fa fa-user-md"></i>
-											</span>
-											<div>
-												<h4 class="m-0">
-													<a href="viewDoctors" class="btn btn-info" style="width: 100px;"
-														id="mailReport">
-														Doctors<small></small>
-													</a>
-												</h4>
-												<small class="text-muted"></small>
-											</div>
-										</div>
-									</div>
-								</div>
 
 
-							
-
-
-							</div>
-
-
-
-						</div>
-
-					</div>
-
-					<div class="col-lg-10">
+						<div class="col-lg-8 ml-5">
 						<div class="container-fluid">
 							<div class="row row-cards">
-								<div class="card p-3" id="content-form">
+								<div class="card p-5" id="content-form">
 									<div class="card-header mb-5">
-										<h2 class="card-title mb-3 text-info">Add doctor</h2>
+										<h2 class="card-title mb-3 text-info">Update doctor details</h2>
 									</div>
 
-									<form action="addDoctor" method="post">
+									<form action="updateDoctor-process" method="post">
+									<s:iterator value="list">
+										
+									
 										<div class="row">
+										
+										<div class="col-md-5">
+												<div class="form-group">
+													<label class="form-label">Doctor id</label> <input
+														type="text" class="form-control" readonly placeholder="doctor name"
+														value="<s:property value="doc_id"/>" name="doc_id">
+												
+
+												</div>
+											</div>
+											<div class="col-md-7">
+												
+											</div>
 											<div class="col-md-5">
 												<div class="form-group">
 													<label class="form-label">Doctor name</label> <input
 														type="text" class="form-control" placeholder="doctor name"
-														name="doc_name">
+														name="doc_name" value="<s:property value="doc_name"/>">
 													<s:fielderror fieldName="doc_name"
 														style="color:red;list-style:none;" />
 
@@ -114,7 +119,7 @@
 												<div class="form-group">
 													<label class="form-label">telephone</label> <input type="text"
 														class="form-control" placeholder="telephone" name="telephone"
-														value="">
+														value="<s:property value="telephone"/>">
 														<s:fielderror fieldName="telephone"
 														style="color:red;list-style:none;" />
 
@@ -126,7 +131,7 @@
 													<label class="form-label">Email</label>
 													<input
 														type="email" class="form-control" placeholder="email"
-														name="email">
+														name="email" value="<s:property value="email"/>">
 													<s:fielderror fieldName="email"
 														style="color:red;list-style:none;" />
 												</div>
@@ -151,8 +156,8 @@
 
 										</div>
 
-										<button class="btn btn-success mt-4" type="submit">Submit</button>
-
+										<button class="btn btn-success mt-4" type="submit">Edit <i class="fa fa-edit"></i></button>
+	</s:iterator>
 									</form>
 
 
@@ -160,6 +165,13 @@
 							</div>
 						</div>
 					</div>
+					<div class="col-lg-3">
+						<div class="card p-3">
+						
+							<img src="demo/other/doctor.jpg" >
+						</div>
+					</div>
+
 
 
 
@@ -207,6 +219,10 @@
 		</div>
 
 	</div>
+	
+
+
 
 </body>
 </html>
+

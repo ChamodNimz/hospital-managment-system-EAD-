@@ -47,7 +47,7 @@ public class Validater {
 
 	public  boolean nameIsValid(String input) {
 		
-		String pattern="^[A-Za-z\\s_\\']{1,10}$";
+		String pattern="^[A-Za-z\\s_\\']{1,20}$";
 		Pattern obj = Pattern.compile(pattern);
 		
 		Matcher m = obj.matcher(input);

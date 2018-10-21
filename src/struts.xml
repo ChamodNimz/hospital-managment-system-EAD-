@@ -54,6 +54,25 @@
 			<result name="error">/error.jsp</result>
 			<result name="input">/admin/doctor-view.jsp</result>
 		</action>
+		
+		<!-- updateDoctor call to pass doc ID to actionclass -->
+		<action name="updateDoctor" class="com.actions.Doctor" method="getDoctorById">
+			<result name="success">/admin/doctor-update.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		
+		<!-- process update of a doctor -->
+		<action name="updateDoctor-process" class="com.actions.Doctor" method="updateDoctor">
+			<result name="success">/admin/doctor-view.jsp</result>
+			<result name="error">/error.jsp</result>
+			<result name="input">/admin/doctor-update.jsp</result>
+		</action>
+		
+		<!-- remove  a doctor -->
+		<action name="removeDoctor" class="com.actions.Doctor" method="removeDoctor">
+			<result name="success">/admin/doctor-view.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
 
 	</package>
 </struts>
