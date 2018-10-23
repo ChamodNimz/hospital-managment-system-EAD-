@@ -73,6 +73,25 @@
 			<result name="success">/admin/doctor-view.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
+		
+		
+		
+		<!-- patient section start  -->
+		<!-- admit a patient   -->
+		<action name="admitPatient" class="com.actions.Patient">
+			<result name="success">/admin/patient-index.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		
+		
+		
+		<!-- ward section start  -->
+		<!-- add a ward   -->
+		<action name="addWard" class="com.actions.Ward">
+			<result name="success">/admin/ward-index.jsp</result>
+			<result name="error">/error.jsp</result>
+			<result name="input">/admin/ward-index.jsp</result>
+		</action>
 
 	</package>
 </struts>

@@ -24,6 +24,7 @@
 
 		<mapping resource="com/actions/Tests.hbm.xml" />
 		<mapping resource="com/actions/Doctor.hbm.xml" />
+		<mapping resource="com/actions/Ward.hbm.xml" />
 		
 	</session-factory>
 </hibernate-configuration>

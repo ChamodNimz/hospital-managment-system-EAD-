@@ -217,7 +217,7 @@
 												</span>
 												<div>
 													<h4 class="m-0">
-														<a href="javascript:void(0)">Patients <small></small></a>
+														<a href="patient-index.jsp">Patients <small></small></a>
 													</h4>
 													<small class="text-muted"></small>
 												</div>
@@ -282,7 +282,7 @@
 												</span>
 												<div>
 													<h4 class="m-0">
-														<a href="javascript:void(0)">Wards <small></small></a>
+														<a href="ward-index.jsp">Wards <small></small></a>
 													</h4>
 													<small class="text-muted"></small>
 												</div>

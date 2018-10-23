@@ -110,10 +110,32 @@ public class Validater {
 		return true;
 	}
 	
-	public boolean isValidAddress() {
+	public boolean isValidAddress(String input) {
 		
-		String pattern ="^[A-Za-z0-9\\s]{}$";
+		String pattern ="^[A-Za-z0-9\\s\\/\\']{10,100}$";
 		
+		Pattern obj = Pattern.compile(pattern);
+		Matcher matcher = obj.matcher(input);
+		
+			if(!matcher.matches()) {
+				this.error="Address should contain at least 10 characters";
+				return false;
+			}
+		return true;
+	}
+	
+	
+	//isNumber 
+	public boolean isNumber(String input) {
+		
+		String pattern="^[\\d]{3}$";
+		Pattern obj = Pattern.compile(pattern);
+		Matcher matcher = obj.matcher(input);
+		
+			if(!matcher.matches()) {
+				this.error="A number like this shouldn't be this long or shouldn't include letters";
+				return false;
+			}
 		return true;
 	}
 

@@ -4,6 +4,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class Patient extends ActionSupport {
 	
+	//normal persistence variables
 	private int patient_id;
 	private String f_name;
 	private String l_name;
@@ -11,6 +12,19 @@ public class Patient extends ActionSupport {
 	private String address;
 	private String gender;
 	
+	//special variables 
+	private String message;// to send a message to front end when a transaction completed
+	
+	public String getMessage() {
+		return message;
+	}
+	public void setMessage(String message) {
+		this.message = message;
+	}
+	
+	
+	
+	//normal getters and setters
 	public int getPatient_id() {
 		return patient_id;
 	}
@@ -52,19 +66,15 @@ public class Patient extends ActionSupport {
 	@Override
 	public String execute() throws Exception {
 		
-	System.out.println(f_name);
-	System.out.println(l_name);
-	System.out.println(gender);
-	
+		this.message="successfully admitted";
 		return SUCCESS;
 	}
 	
-	@Override
-	public void validate() {
+	
+	//admitPatient method call
+	public String admitPatient() {
 		
-		super.validate();
-		addFieldError("f_name", "fuck");
-		
+		return SUCCESS;
 	}
 	
 	@Override
