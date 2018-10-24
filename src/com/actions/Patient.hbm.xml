@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.actions.Patient" table="patient">
+
+		<id name="patient_id" column="patient_id">
+			<generator class="native" />
+		</id>
+
+		<property name="p_address">
+			<column name="p_address" length="255" not-null="true" />
+		</property>
+
+		<property name="p_nic">
+			<column name="p_nic" length="10" not-null="true" />
+		</property>
+		
+		<property name="p_gender">
+			<column name="p_gender" length="8" not-null="true" />
+		</property>
+
+		<property name="password">
+			<column name="password" length="15" not-null="true" />
+		</property>
+		
+		<property name="telephone">
+			<column name="telephone" length="12" not-null="true" />
+		</property>
+
+
+		<property name="p_fname">
+			<column name="p_fname" length="30" not-null="true" />
+		</property>
+		
+		<property name="p_lname">
+			<column name="p_lname" length="30" not-null="true" />
+		</property>
+		
+		<property name="email">
+			<column name="email" length="100" not-null="true" />
+		</property>
+		
+		<property name="reg_date">
+			<column name="reg_date"  not-null="true" />
+		</property>
+
+	</class>
+</hibernate-mapping>

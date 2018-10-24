@@ -164,8 +164,6 @@ public class Tests extends ActionSupport {
 	 */
 	public String  payForResults() {
 		
-		System.out.println(f_name);
-		System.out.println(t_id);
 		TestsManager.pay(t_id,paid_flag);
 		return SUCCESS;
 	}

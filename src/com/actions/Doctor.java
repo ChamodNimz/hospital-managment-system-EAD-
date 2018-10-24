@@ -19,6 +19,8 @@ public class Doctor extends ActionSupport implements ServletRequestAware {
 	private String doc_specialty;
 	private String telephone;
 	private String email;
+	private String time;
+
 
 	// special properties
 	List<Doctor> list;
@@ -26,6 +28,13 @@ public class Doctor extends ActionSupport implements ServletRequestAware {
 	
 
 	// normal properties getters and setters
+	public String getTime() {
+		return time;
+	}
+	
+	public void setTime(String time) {
+		this.time = time;
+	}
 	public int getDoc_id() {
 		return doc_id;
 	}

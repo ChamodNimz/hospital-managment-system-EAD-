@@ -27,6 +27,10 @@
 		<property name="email">
 			<column name="email" length="100" not-null="true" />
 		</property>
+		
+		<property name="time">
+			<column name="time" length="20" not-null="true" />
+		</property>
 
 
 

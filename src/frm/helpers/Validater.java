@@ -10,13 +10,6 @@ public class Validater {
 	
 	private Matcher matcher ;
 	
-	
-	/*
-	 * error codes
-	 * 1- true
-	 * 0- false
-	 * 
-	 */
 
 	public Validater() {
 		

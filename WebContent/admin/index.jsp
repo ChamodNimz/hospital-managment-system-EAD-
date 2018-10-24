@@ -217,7 +217,7 @@
 												</span>
 												<div>
 													<h4 class="m-0">
-														<a href="patient-index.jsp">Patients <small></small></a>
+														<a href="getAdmitDetails">Patients <small></small></a>
 													</h4>
 													<small class="text-muted"></small>
 												</div>

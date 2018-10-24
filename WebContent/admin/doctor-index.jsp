@@ -21,7 +21,8 @@
 
 <title>Doctors Section</title>
 <%@  include file="layouts/admin-panel-header-links.jsp"%>
-
+<script src="https://cdn.jsdelivr.net/npm/gijgo@1.9.10/js/gijgo.min.js" type="text/javascript"></script>
+<link href="https://cdn.jsdelivr.net/npm/gijgo@1.9.10/css/gijgo.min.css" rel="stylesheet" type="text/css" />
 </head>
 <body class="">
 	<div class="page">
@@ -145,6 +146,18 @@
 														<option value="Radiologist">Radiologist</option>
 														<option value="Oncologist">Oncologist</option>
 													</select>
+												</div>
+											</div>
+											
+											<div class="col-sm-6 col-md-4">
+												<div class="form-group">
+													<label class="form-label">Available time</label>
+													 <input id="timepicker" width="276" name="time" />
+ <script>
+     $('#timepicker').timepicker({ uiLibrary: 'bootstrap4' });
+ </script>
+													<s:fielderror fieldName="time"
+														style="color:red;list-style:none;" />
 												</div>
 											</div>
 											

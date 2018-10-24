@@ -1,25 +1,41 @@
 package com.actions;
 
+import java.util.List;
 import com.opensymphony.xwork2.ActionSupport;
+import managers.PatientManager;
 
 public class Patient extends ActionSupport {
 	
 	//normal persistence variables
 	private int patient_id;
-	private String f_name;
-	private String l_name;
-	private String e_mail;
-	private String address;
-	private String gender;
+	private String p_fname;
+	private String p_lname;
+	private String email;
+	private String p_address;
+	private String p_gender;
+	private String reg_date;
+	private String telephone;
+	private String password;
+	private String p_nic;
+	
 	
 	//special variables 
 	private String message;// to send a message to front end when a transaction completed
+	private List<Patient> patientList ; // to send patient list to admits
 	
+	
+	//special getters and setters 
 	public String getMessage() {
 		return message;
 	}
 	public void setMessage(String message) {
 		this.message = message;
+	}
+	public List<Patient> getPatientList() {
+		return patientList;
+	}
+	public void setPatientList(List<Patient> patientList) {
+		this.patientList = patientList;
 	}
 	
 	
@@ -31,36 +47,63 @@ public class Patient extends ActionSupport {
 	public void setPatient_id(int patient_id) {
 		this.patient_id = patient_id;
 	}
-	public String getF_name() {
-		return f_name;
+	public String getP_fname() {
+		return p_fname;
 	}
-	public String getGender() {
-		return gender;
+	public void setP_fname(String p_fname) {
+		this.p_fname = p_fname;
 	}
-	public void setGender(String gender) {
-		this.gender = gender;
+	public String getP_lname() {
+		return p_lname;
 	}
-	public void setF_name(String f_name) {
-		this.f_name = f_name;
+	public void setP_lname(String p_lname) {
+		this.p_lname = p_lname;
 	}
-	public String getL_name() {
-		return l_name;
+	public String getEmail() {
+		return email;
 	}
-	public void setL_name(String l_name) {
-		this.l_name = l_name;
+	public void setEmail(String email) {
+		this.email = email;
 	}
-	public String getE_mail() {
-		return e_mail;
+	public String getP_address() {
+		return p_address;
 	}
-	public void setE_mail(String e_mail) {
-		this.e_mail = e_mail;
+	public void setP_address(String p_address) {
+		this.p_address = p_address;
 	}
-	public String getAddress() {
-		return address;
+	public String getP_gender() {
+		return p_gender;
 	}
-	public void setAddress(String address) {
-		this.address = address;
+	public void setP_gender(String p_gender) {
+		this.p_gender = p_gender;
 	}
+	public String getReg_date() {
+		return reg_date;
+	}
+	public void setReg_date(String reg_date) {
+		this.reg_date = reg_date;
+	}
+	public String getTelephone() {
+		return telephone;
+	}
+	public void setTelephone(String telephone) {
+		this.telephone = telephone;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public String getP_nic() {
+		return p_nic;
+	}
+	public void setP_nic(String p_nic) {
+		this.p_nic = p_nic;
+	}
+	
+	
+	
 	
 	
 	@Override
@@ -73,6 +116,20 @@ public class Patient extends ActionSupport {
 	
 	//admitPatient method call
 	public String admitPatient() {
+		
+		return SUCCESS;
+	}
+	
+	
+	//get admit details for fill dropdowns
+	public String getAdmitDetails() {
+		
+		//get patient data
+		this.patientList =PatientManager.getPatientsById();
+		
+		//get ward data
+		
+		//get docnames
 		
 		return SUCCESS;
 	}
