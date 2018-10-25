@@ -1,6 +1,9 @@
 package managers;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -25,13 +28,24 @@ public class PatientManager {
 
 		Transaction transaction = session.beginTransaction();
 		
-		String hql ="from Patient";
+		String hql ="select patient_id, p_fname from Patient";
+		
 		Query query = session.createQuery(hql);
 		
-		List<Patient> list =(List<Patient>) query.list();
+		List<Object[]> list = query.list();
+		
+		List<Patient> patientList = new  ArrayList<Patient>();
+		
+		for(Object[] o: list) {
+			
+			Patient patient = new Patient();
+			patient.setP_fname((String)o[1]);
+			patient.setPatient_id((int)o[0]);
+			patientList.add(patient);
+		}
 
 		transaction.commit();
-		
-		return list;
+		session.close();
+		return patientList;
 	}
 }

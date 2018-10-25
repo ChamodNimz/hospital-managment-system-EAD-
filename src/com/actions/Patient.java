@@ -1,8 +1,18 @@
 package com.actions;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
+import javax.servlet.http.HttpServletResponse;
+import org.apache.struts2.ServletActionContext;
+
+import com.google.gson.Gson;
 import com.opensymphony.xwork2.ActionSupport;
+import managers.DoctorManager;
 import managers.PatientManager;
+import managers.WardManager;
+
 
 public class Patient extends ActionSupport {
 	
@@ -22,9 +32,30 @@ public class Patient extends ActionSupport {
 	//special variables 
 	private String message;// to send a message to front end when a transaction completed
 	private List<Patient> patientList ; // to send patient list to admits
+	private List<Ward> wardList; // to send ward id and name to admits
+	private List<Doctor> docList; // to send doctor id and name to admits 
+	private int w_id; // to store ajax incomming w_id value
 	
 	
 	//special getters and setters 
+	public List<Doctor> getDocList() {
+		return docList;
+	}
+	public int getW_id() {
+		return w_id;
+	}
+	public void setW_id(int w_id) {
+		this.w_id = w_id;
+	}
+	public void setDocList(List<Doctor> docList) {
+		this.docList = docList;
+	}
+	public List<Ward> getWardList() {
+		return wardList;
+	}
+	public void setWardList(List<Ward> wardList) {
+		this.wardList = wardList;
+	}
 	public String getMessage() {
 		return message;
 	}
@@ -125,13 +156,40 @@ public class Patient extends ActionSupport {
 	public String getAdmitDetails() {
 		
 		//get patient data
-		this.patientList =PatientManager.getPatientsById();
+		this.patientList = PatientManager.getPatientsById();
 		
 		//get ward data
+		this.wardList = WardManager.getWardsWithId();
 		
 		//get docnames
+		this.docList = DoctorManager.getDoctorWithId();
 		
 		return SUCCESS;
+	}
+	
+	public void getAvailabilityDetails() {
+		
+		HttpServletResponse response = ServletActionContext.getResponse();
+		response.setContentType("application/json");
+		PrintWriter out;
+		
+		ArrayList<String> list = new  ArrayList<String>();
+	
+		list.add("room_count");
+		list.add("available_count");
+		list.add(Integer.toString(w_id));
+		
+		String json = new Gson().toJson(list);
+		try {
+			out = response.getWriter();
+			out.println(json);
+			out.flush();
+		} catch (IOException e) {
+			System.out.println("ss");
+			e.printStackTrace();
+		}
+		
+		
 	}
 	
 	@Override

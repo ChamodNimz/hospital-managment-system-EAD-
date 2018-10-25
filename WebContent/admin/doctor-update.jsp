@@ -65,7 +65,8 @@
 
 
 
-	
+<script src="https://cdn.jsdelivr.net/npm/gijgo@1.9.10/js/gijgo.min.js" type="text/javascript"></script>
+<link href="https://cdn.jsdelivr.net/npm/gijgo@1.9.10/css/gijgo.min.css" rel="stylesheet" type="text/css" />
 
 
 </head>
@@ -153,6 +154,17 @@
 												</div>
 											</div>
 											
+											<div class="col-sm-6 col-md-4">
+												<div class="form-group">
+													<label class="form-label">Available time</label>
+													 <input id="timepicker" width="276" name="time" value="<s:property value="time" />"/>
+ <script>
+     $('#timepicker').timepicker({ uiLibrary: 'bootstrap4' });
+ </script>
+													<s:fielderror fieldName="time"
+														style="color:red;list-style:none;" />
+												</div>
+											</div>
 
 										</div>
 

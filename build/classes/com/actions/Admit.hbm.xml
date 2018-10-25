@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.actions.Admit" table="admits">
+
+		<id name="ref_no" column="ref_no">
+			<generator class="native" />
+		</id>
+
+		<property name="ward_no">
+			<column name="ward_no"  not-null="true" />
+		</property>
+
+		<property name="p_id">
+			<column name="p_id"  not-null="true" />
+		</property>
+
+		<property name="reason">
+			<column name="reason" length="100" not-null="true" />
+		</property>
+
+
+		<property name="special_notes">
+			<column name="special_notes" length="500" not-null="true" />
+		</property>
+		
+		<property name="admit_date">
+			<column name="admit_date"  not-null="true" />
+		</property>
+		
+		<property name="release_date">
+			<column name="release_date" not-null="true" />
+		</property>
+		
+		<property name="floor_no">
+			<column name="floor_no"  not-null="true" />
+		</property>
+		
+		<property name="doc_name">
+			<column name="doc_name" length="30" not-null="true" />
+		</property>
+
+
+
+	</class>
+</hibernate-mapping>
