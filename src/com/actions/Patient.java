@@ -27,7 +27,7 @@ public class Patient extends ActionSupport {
 	private String telephone;
 	private String password;
 	private String p_nic;
-	
+	private int admit_flag;
 	
 	//special variables 
 	private String message;// to send a message to front end when a transaction completed
@@ -74,6 +74,12 @@ public class Patient extends ActionSupport {
 	//normal getters and setters
 	public int getPatient_id() {
 		return patient_id;
+	}
+	public int getAdmit_flag() {
+		return admit_flag;
+	}
+	public void setAdmit_flag(int admit_flag) {
+		this.admit_flag = admit_flag;
 	}
 	public void setPatient_id(int patient_id) {
 		this.patient_id = patient_id;

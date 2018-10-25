@@ -2,17 +2,19 @@ package com.actions;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
-
 import org.apache.struts2.ServletActionContext;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
 
 import com.google.gson.Gson;
 import com.opensymphony.xwork2.ActionSupport;
-
 import managers.AdmitManager;
 import managers.DoctorManager;
 import managers.PatientManager;
@@ -37,10 +39,18 @@ public class Admit extends ActionSupport {
 	private List<Ward> wardList;
 	private List<Doctor> docList;
 	private int w_id;
+	private int avl_room_count;
+	private List<Admit> admitList;
+	private String message;
 	
-	//normal getters and setters
 	public int getRef_no() {
 		return ref_no;
+	}
+	public String getMessage() {
+		return message;
+	}
+	public void setMessage(String message) {
+		this.message = message;
 	}
 	public void setRef_no(int ref_no) {
 		this.ref_no = ref_no;
@@ -102,6 +112,21 @@ public class Admit extends ActionSupport {
 	
 	
 	//special getters and setters 
+	public int getAvl_room_count() {
+		return avl_room_count;
+	}
+	public void setAvl_room_count(int avl_room_count) {
+		this.avl_room_count = avl_room_count;
+	}
+	public List<Admit> getAdmitList() {
+		return admitList;
+	}
+	public void setAdmitList(List<Admit> admitList) {
+		this.admitList = admitList;
+	}
+	
+	
+	//normal getters and setters
 	public List<Patient> getPatientList() {
 		return patientList;
 	}
@@ -164,17 +189,27 @@ public class Admit extends ActionSupport {
 		//admitPatient method call
 		public String admitPatient() {
 			
-			
-
 			this.admit_date=this.admit_date.replaceAll("(\\d+)/(\\d+)/(\\d+)", "$3-$1-$2");
-			System.out.println(this.admit_date);
+			//update ward rooms
+			WardManager.updateAvailableRoomCount(ward_no,avl_room_count);
+			
+			//update patient admit flag
+			PatientManager.updateAdmitFlag(p_id);
+			
 			if(AdmitManager.admitPatient(this)) {
+				this.message="This patient is successfully admitted .. !";
 				return SUCCESS;
 			}
 			else {
 				return ERROR;
 			}
 			
+		}
+		
+		public String viewAdmits() {
+			
+			this.admitList=AdmitManager.getAdmits();
+			return SUCCESS;
 		}
 	
 	

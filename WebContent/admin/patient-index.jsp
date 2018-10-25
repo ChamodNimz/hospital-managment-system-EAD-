@@ -48,7 +48,7 @@
 											</span>
 											<div>
 												<h4 class="m-0">
-													<a href="patient-index.jsp" class="btn btn-info" style="width: 110px;" id="mailReport"> Admit patient<small></small>
+													<a href="getAdmitDetails" class="btn btn-info" style="width: 110px;" id="mailReport"> Admit patient<small></small>
 													</a>
 												</h4>
 												<small class="text-muted"></small>
@@ -64,7 +64,7 @@
 											</span>
 											<div>
 												<h4 class="m-0">
-													<a href="viewDoctors" class="btn btn-info" style="width: 110px;" id="mailReport"> View admits<small></small>
+													<a href="viewAdmits" class="btn btn-info" style="width: 110px;" id="mailReport"> View admits<small></small>
 													</a>
 												</h4>
 												<small class="text-muted"></small>
@@ -81,6 +81,22 @@
 											<div>
 												<h4 class="m-0">
 													<a href="viewDoctors" class="btn btn-info" style="width: 110px;" id="mailReport"> See patients<small></small>
+													</a>
+												</h4>
+												<small class="text-muted"></small>
+											</div>
+										</div>
+									</div>
+								</div>
+								
+								<div class="col-sm-12 col-lg-12">
+									<div class="card p-3">
+										<div class="d-flex align-items-center">
+											<span class="stamp stamp-md bg-blue mr-3"> <i class="fa fa-user-md"></i>
+											</span>
+											<div>
+												<h4 class="m-0">
+													<a href="viewDoctors" class="btn btn-info" style="width: 110px;" id="mailReport"> Release patient<small></small>
 													</a>
 												</h4>
 												<small class="text-muted"></small>
@@ -105,6 +121,11 @@
 						<div class="container-fluid">
 							<div class="row row-cards">
 								<div class="card p-3" id="content-form">
+								<s:if test='%{message!=""}'>
+										<div class="alert alert-success">
+											<b><s:property value="message" /></b>
+										</div>
+									</s:if>
 									<div class="card-header mb-5">
 										<h2 class="card-title mb-3 text-info">Admit a patient</h2>
 									</div>
@@ -114,6 +135,7 @@
 											<div class="col-md-5">
 												<div class="form-group">
 													<label class="form-label">Ward Name</label> <select name="ward_no" id="ward-name" class="form-control">
+													<option value=""></option>
 														<s:iterator value="wardList">
 															<option value="<s:property value=" w_id" />">
 															<s:property value="w_name" />
@@ -125,13 +147,22 @@
 											</div>
 											<div class="col-sm-6 col-md-3">
 												<div class="form-group">
-													<label class="form-label">Patient ID</label> <select name="p_id" class="form-control">
+													<label class="form-label">Patient name</label> <select name="p_id" class="form-control">
+													<option value=""></option>
 														<s:iterator value="patientList">
 															<option value="<s:property value=" patient_id" />">
 															<s:property value="p_fname" />
 															</option>
 														</s:iterator>
 													</select>
+												</div>
+											</div>
+											
+											<div class="col-sm-6 col-md-3">
+												<div class="form-group">
+													<label class="form-label">Room price</label> 
+													<input id="room_price" class="form-control"  readonly/>
+													<input name="avl_room_count" id="room_count" hidden/>
 												</div>
 											</div>
 
@@ -154,7 +185,7 @@
 
 											<div class="col-md-6">
 												<div class="form-group">
-													<label class="form-label">Admit Date</label> <input id="datepicker" width="234" name="admit_date" />
+													<label class="form-label">Admit Date</label> <input id="datepicker" width="234" name="admit_date" readonly/>
 													<script>
 														$('#datepicker')
 															.datepicker(
@@ -183,7 +214,7 @@
 												<div class="form-group">
 													<label class="form-label">Doc Name</label> <select name="doc_name" class="form-control">
 														<s:iterator value="docList">
-															<option value="<s:property value=" doc_id" />">
+															<option value="<s:property value="doc_name" />">
 															<s:property value="doc_name" />
 															</option>
 														</s:iterator>
@@ -226,7 +257,8 @@
 							var occPercentage = (occRoomCount/roomCount)*100;
 							var avPercentage = (avRoomCount/roomCount)* 100;
 							
-							
+							$('#room_price').val(price);//set  this to display room price
+							$('#room_count').val(avRoomCount);
 							require(['c3', 'jquery'],function (c3, $) {
 								
 								var chart = c3.generate({

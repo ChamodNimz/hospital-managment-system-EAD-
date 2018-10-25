@@ -24,7 +24,7 @@ public class PatientManager {
 
 		Transaction transaction = session.beginTransaction();
 		
-		String hql ="select patient_id, p_fname from Patient";
+		String hql ="select patient_id, p_fname from Patient where admit_flag=0 ";
 		
 		Query query = session.createQuery(hql);
 		
@@ -43,6 +43,33 @@ public class PatientManager {
 		transaction.commit();
 		session.close();
 		return patientList;
+	}
+	
+	//update admit flag
+	public static boolean updateAdmitFlag(int p_id) {
+		
+		try {
+			
+			Configuration configuration = new Configuration().configure();
+			
+			SessionFactory sessionFactory = configuration.buildSessionFactory();
+			
+			Session session = sessionFactory.getCurrentSession();
+
+			Transaction transaction = session.beginTransaction();
+			
+			String hql="update Patient set admit_flag = 1 where patient_id =:p_id";
+			Query query = session.createQuery(hql);
+			query.setParameter("p_id",p_id);
+			query.executeUpdate();
+			transaction.commit();
+			session.close();
+			return true;
+		} catch (Exception e) {
+
+			e.printStackTrace();
+			return false;
+		}
 	}
 	
 }

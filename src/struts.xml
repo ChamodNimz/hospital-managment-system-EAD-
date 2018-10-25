@@ -76,7 +76,7 @@
 		
 		
 		
-		<!-- patient section start  -->
+		<!-- admit section start  -->
 		
 		<!-- get AdmitDetails to fill the drop downs   -->
 		<action name="getAdmitDetails" class="com.actions.Admit" method="getAdmitDetails">
@@ -94,6 +94,14 @@
 		<action name="getAvailabilityDetails" class="com.actions.Admit" method="getAvailabilityDetails">
 			
 		</action>
+		
+		<!-- view admits   -->
+		<action name="viewAdmits" class="com.actions.Admit" method="viewAdmits">
+			<result name="success">/admin/patient-viewAdmits.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		
+		
 		
 		
 		

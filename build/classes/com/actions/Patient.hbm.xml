@@ -47,6 +47,11 @@
 		<property name="reg_date">
 			<column name="reg_date"  not-null="true" />
 		</property>
+		
+		<property name="admit_flag">
+			<column name="admit_flag"  not-null="true" />
+		</property>
+		
 
 	</class>
 </hibernate-mapping>
