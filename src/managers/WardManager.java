@@ -64,4 +64,34 @@ public class WardManager {
 		return wardList;
 		
 	}
+	
+	//get ward no, available room count and total room count
+	public static ArrayList<Integer> getWardAvailability(int w_id){
+		
+		Configuration configuration = new Configuration().configure();
+		
+		SessionFactory sessionFactory = configuration.buildSessionFactory();
+		
+		Session session = sessionFactory.getCurrentSession();
+
+		Transaction transaction = session.beginTransaction();
+		
+		String hql="select room_count, available_rooms, price from Ward where w_id= :id ";
+		Query query = session.createQuery(hql);
+		query.setParameter("id",w_id);
+		List<Object[]> objectList = query.list();
+		
+		ArrayList<Integer> array = new ArrayList<Integer>();
+		
+		//create Ward list
+		for(Object[] obj:objectList) {
+
+			array.add(Integer.parseInt((String)obj[0]));
+			array.add((int)obj[1]);
+			array.add(Math.round((float) obj[2]));
+		}
+		transaction.commit();
+		session.close();
+		return array;
+	}
 }

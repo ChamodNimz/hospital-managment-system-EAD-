@@ -143,54 +143,7 @@ public class Patient extends ActionSupport {
 		this.message="successfully admitted";
 		return SUCCESS;
 	}
-	
-	
-	//admitPatient method call
-	public String admitPatient() {
 		
-		return SUCCESS;
-	}
-	
-	
-	//get admit details for fill dropdowns
-	public String getAdmitDetails() {
-		
-		//get patient data
-		this.patientList = PatientManager.getPatientsById();
-		
-		//get ward data
-		this.wardList = WardManager.getWardsWithId();
-		
-		//get docnames
-		this.docList = DoctorManager.getDoctorWithId();
-		
-		return SUCCESS;
-	}
-	
-	public void getAvailabilityDetails() {
-		
-		HttpServletResponse response = ServletActionContext.getResponse();
-		response.setContentType("application/json");
-		PrintWriter out;
-		
-		ArrayList<String> list = new  ArrayList<String>();
-	
-		list.add("room_count");
-		list.add("available_count");
-		list.add(Integer.toString(w_id));
-		
-		String json = new Gson().toJson(list);
-		try {
-			out = response.getWriter();
-			out.println(json);
-			out.flush();
-		} catch (IOException e) {
-			System.out.println("ss");
-			e.printStackTrace();
-		}
-		
-		
-	}
 	
 	@Override
 	public void addFieldError(String fieldName, String errorMessage) {

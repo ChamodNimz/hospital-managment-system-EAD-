@@ -79,19 +79,19 @@
 		<!-- patient section start  -->
 		
 		<!-- get AdmitDetails to fill the drop downs   -->
-		<action name="getAdmitDetails" class="com.actions.Patient" method="getAdmitDetails">
+		<action name="getAdmitDetails" class="com.actions.Admit" method="getAdmitDetails">
 			<result name="success">/admin/patient-index.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
 		
 		<!-- admit a patient   -->
-		<action name="admitPatient" class="com.actions.Patient">
+		<action name="admitPatient" class="com.actions.Admit" method="admitPatient">
 			<result name="success">/admin/patient-index.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
 		
 		<!-- ajax call to get chart data and availability of a ward   -->
-		<action name="getAvailabilityDetails" class="com.actions.Patient" method="getAvailabilityDetails">
+		<action name="getAvailabilityDetails" class="com.actions.Admit" method="getAvailabilityDetails">
 			
 		</action>
 		

@@ -33,7 +33,7 @@
 		</property>
 		
 		<property name="release_date">
-			<column name="release_date" not-null="true" />
+			<column name="release_date" not-null="false" />
 		</property>
 		
 		<property name="floor_no">

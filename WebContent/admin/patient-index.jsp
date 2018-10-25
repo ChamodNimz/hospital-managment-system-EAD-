@@ -169,12 +169,12 @@
 											<div class="col-md-6">
 												<div class="form-group">
 													<label class="form-label">Floor No</label> <select name="floor_no" class="form-control">
-														<option value="">1</option>
-														<option value="">2</option>
-														<option value="">3</option>
-														<option value="">4</option>
-														<option value="">5</option>
-														<option value="">6</option>
+														<option value="1">1</option>
+														<option value="2">2</option>
+														<option value="3">3</option>
+														<option value="4">4</option>
+														<option value="5">5</option>
+														<option value="6">6</option>
 													</select>
 												</div>
 											</div>
@@ -214,37 +214,55 @@
 							</div>
 						</div>
 						<script>
-		require(['c3', 'jquery'],function (c3, $) {
-			$(document).ready(function () {
-				var chart = c3.generate({
-					bindto: '#chart-donut', // id of chart wrapper
-						data: {
-							columns: [
-							// each columns data
-							['data1',63],
-							['data2',37]],
-						type: 'donut', // default type of chart
-						colors: {
-							'data1': tabler.colors["green"],
-							'data2': tabler.colors["blue"]
-								},
-						names: {
-						// name of each serie
-							'data1': 'Available rooms',
-							'data2': 'Occupied rooms'
-								}
-									},
-						axis: {},
-						legend: {
-						show: false, //hide legend
-											},
-						padding: {
-						bottom: 0,
-						top: 0
-														},
-													});
-											});
-								});
+						
+						function chartGen(data){
+							
+							//calculation percentage
+							var roomCount = data[0];
+							var avRoomCount = data[1];
+							var price = data[2];
+							var occRoomCount = Number(roomCount)-Number(avRoomCount);
+							
+							var occPercentage = (occRoomCount/roomCount)*100;
+							var avPercentage = (avRoomCount/roomCount)* 100;
+							
+							
+							require(['c3', 'jquery'],function (c3, $) {
+								
+								var chart = c3.generate({
+									bindto: '#chart-donut', // id of chart wrapper
+										data: {
+											columns: [
+											// each columns data
+											['data1',avPercentage],
+											['data2',occPercentage]],
+										type: 'donut', // default type of chart
+										transition:{
+											duration:1000
+										},
+										colors: {
+											'data1': tabler.colors["green"],
+											'data2': tabler.colors["blue"]
+												},
+										names: {
+										// name of each serie
+											'data1': 'Available rooms',
+											'data2': 'Occupied rooms'
+												}
+													},
+										axis: {},
+										legend: {
+										show: false, //hide legend
+															},
+										padding: {
+										bottom: 0,
+										top: 0
+																		},
+																	});
+															
+												});
+						}
+		
 						</script>
 					</div>
 
@@ -302,9 +320,7 @@ var data = {"w_id":wId};
         url:'getAvailabilityDetails',
         data:data,
         success: function(data){
-        	console.log(data[0]);
-        	console.log(data[1]);
-        	console.log(data[2]);
+        	chartGen(data);
            
                 }
 
