@@ -27,6 +27,7 @@
 		<mapping resource="com/actions/Ward.hbm.xml" />
 		<mapping resource="com/actions/Patient.hbm.xml" />
 		<mapping resource="com/actions/Admit.hbm.xml" />
+		<mapping resource="models/PatientRelease.hbm.xml" />
 		
 	</session-factory>
 </hibernate-configuration>

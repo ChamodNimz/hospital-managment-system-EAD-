@@ -28,9 +28,7 @@ public class DoctorManager {
 			
 			transaction.commit();
 			session.close();
-			
-			
-		
+	
 	}
 
 	public static List<Doctor> getDoctors() {

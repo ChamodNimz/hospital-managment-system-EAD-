@@ -39,11 +39,11 @@
 						<div class="container-fluid">
 							<div class="row row-cards">
 								<div class="card p-3" id="content-form">
-								<s:if test='%{message!=""}'>
+								
 										<div class="alert alert-success">
 											<b><s:property value="message" /></b>
 										</div>
-									</s:if>
+									
 									<div class="card-header mb-5">
 										<h2 class="card-title mb-3 text-info">Admit a patient</h2>
 									</div>
@@ -91,6 +91,8 @@
 												<div class="form-group">
 													<label class="form-label">Reason</label>
 													<textarea rows="" cols="" name="reason" class="form-control" required></textarea>
+													<s:fielderror fieldName="reason"
+														style="color:red;list-style:none;" />
 												</div>
 											</div>
 
@@ -98,6 +100,8 @@
 												<div class="form-group">
 													<label class="form-label">Special notes</label>
 													<textarea rows="" cols="" name="special_notes" class="form-control" required></textarea>
+													<s:fielderror fieldName="special_notes"
+														style="color:red;list-style:none;" />
 												</div>
 											</div>
 

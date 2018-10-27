@@ -11,7 +11,7 @@
 			<result name="error">/admin/404.html</result>
 			<result name="input">/login.jsp</result>
 		</action>
-
+<!-- test section ==================================================================================================== -->
 		<action name="patientRegister" class="com.actions.Patient">
 			<result name="success">admin/admin-dashboard.jsp</result>
 			<result name="error">/error.jsp</result>
@@ -79,9 +79,17 @@
 		</action>
 		
 		
+		<!-- patient section ==================================================================================================== -->
+		<!-- register patient  -->
+		<action name="registerPatient" class="com.actions.Patient" method="registerPatient">
+			<result name="success">/admin/patient-index.jsp</result>
+			<result name="input">/admin/patient-register.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		
 		
 		<!-- admit section start  -->
-		
+
 		<!-- get AdmitDetails to fill the drop downs   -->
 		<action name="getAdmitDetails" class="com.actions.Admit" method="getAdmitDetails">
 			<result name="success">/admin/patient-index.jsp</result>
@@ -92,6 +100,7 @@
 		<action name="admitPatient" class="com.actions.Admit" method="admitPatient">
 			<result name="success">/admin/patient-index.jsp</result>
 			<result name="error">/error.jsp</result>
+			<result name="input">/admin/patient-index.jsp</result>
 		</action>
 		
 		<!-- ajax call to get chart data and availability of a ward   -->

@@ -92,7 +92,7 @@ public class Validater {
 	
 	public boolean isValidNIC(String input) {
 		
-		String pattern="^[0-9]{10}(v|V)$";
+		String pattern="^[0-9]{9}[v|V]{1}$";
 		Pattern obj = Pattern.compile(pattern);
 		Matcher matcher = obj.matcher(input);
 		

@@ -23,6 +23,7 @@ public class Doctor extends ActionSupport implements SessionAware{
 	// special properties
 	List<Doctor> list;
 	private Map<String,Object> session;
+	private String message;
 	
 
 	// normal properties getters and setters
@@ -80,10 +81,19 @@ public class Doctor extends ActionSupport implements SessionAware{
 	}
 	
 	//special getters and setters that are out of model scope but in this class
+	
 	public List<Doctor> getList() {
 		return list;
 	}
 	
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
 	public void setList(List<Doctor> list) {
 		this.list = list;
 	}
@@ -102,12 +112,9 @@ public class Doctor extends ActionSupport implements SessionAware{
 	public String execute() throws Exception {
 		
 		if(validation()) {
-			
-			Admin admin = new Admin();
-			admin.setUsername("chamod");
-			admin.setPassword("123");
-			session.put("user", admin);
-			//DoctorManager.addDoctor(this);
+
+			DoctorManager.addDoctor(this);
+			this.message="Doctor enterd successfully ... ";
 			return SUCCESS;
 		}
 		else {

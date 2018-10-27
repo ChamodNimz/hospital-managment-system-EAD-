@@ -40,11 +40,11 @@
 						<div class="container-fluid">
 							<div class="row row-cards">
 								<div class="card p-3" id="content-form">
-								<s:if test='%{message!=""}'>
+								
 										<div class="alert alert-success">
 											<b><s:property value="message" /></b>
 										</div>
-									</s:if>
+									
 									<div class="card-header mb-5">
 										<h2 class="card-title mb-3 text-info">Release a patient</h2>
 									</div>
@@ -70,7 +70,7 @@
 											<div class="col-sm-6 col-md-3">
 												<div class="form-group">
 													<label class="form-label">Total</label> 
-													<input id="total" class="form-control"  readonly/>
+													<input id="total" class="form-control" name="total" readonly/>
 													<input name="avl_room_count" id="room_count" hidden/>
 												</div>
 											</div>
@@ -81,7 +81,8 @@
 											<div class="col-md-12">
 												<div class="form-group">
 													<label class="form-label">Reason</label>
-													<textarea rows="" cols="" name="" id="reason" class="form-control"></textarea>
+													<textarea rows="" cols="" name="" id="reason" class="form-control" readonly></textarea>
+													
 												</div>
 											</div>
 
