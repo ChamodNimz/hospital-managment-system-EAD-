@@ -1,17 +1,15 @@
 package com.actions;
 
 import java.util.List;
-
+import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
-
 import org.apache.struts2.interceptor.ServletRequestAware;
-
+import org.apache.struts2.interceptor.SessionAware;
 import com.opensymphony.xwork2.ActionSupport;
-
 import frm.helpers.Validater;
 import managers.DoctorManager;
 
-public class Doctor extends ActionSupport implements ServletRequestAware {
+public class Doctor extends ActionSupport implements SessionAware{
 
 	// normal properties
 	private int doc_id;
@@ -24,7 +22,7 @@ public class Doctor extends ActionSupport implements ServletRequestAware {
 
 	// special properties
 	List<Doctor> list;
-	private HttpServletRequest request;
+	private Map<String,Object> session;
 	
 
 	// normal properties getters and setters
@@ -89,15 +87,27 @@ public class Doctor extends ActionSupport implements ServletRequestAware {
 	public void setList(List<Doctor> list) {
 		this.list = list;
 	}
-	
 
-	// add doctor functionality
+	public Map<String, Object> getSession() {
+		return session;
+	}
+
+	public void setSession(Map<String, Object> session) {
+		this.session = session;
+	}
+
+	
+	// add doctor function
 	@Override
 	public String execute() throws Exception {
 		
 		if(validation()) {
 			
-			DoctorManager.addDoctor(this);
+			Admin admin = new Admin();
+			admin.setUsername("chamod");
+			admin.setPassword("123");
+			session.put("user", admin);
+			//DoctorManager.addDoctor(this);
 			return SUCCESS;
 		}
 		else {
@@ -167,10 +177,5 @@ public class Doctor extends ActionSupport implements ServletRequestAware {
 		return true;
 	}
 
-	@Override
-	public void setServletRequest(HttpServletRequest request) {
-		this.request= request;
-		
-	}
 
 }

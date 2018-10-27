@@ -33,89 +33,7 @@
 			<div class="container-fluid">
 				<div class="row row-cards">
 					<!------------------------------------------ navigation with cards --------------------------------------->
-					<div class="col-lg-2">
-						<div class="card p-3">
-							<div class="card-header">
-								<h3 class="card-title mb-3">Quick navigation</h3>
-							</div>
-
-							<div class="row row-cards mt-3">
-
-								<div class="col-sm-12 col-lg-12 ">
-									<div class="card p-3">
-										<div class="d-flex align-items-center">
-											<span class="stamp stamp-md bg-blue mr-3"> <i class="fe fe-activity"></i>
-											</span>
-											<div>
-												<h4 class="m-0">
-													<a href="getAdmitDetails" class="btn btn-info" style="width: 110px;" id="mailReport"> Admit patient<small></small>
-													</a>
-												</h4>
-												<small class="text-muted"></small>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<div class="col-sm-12 col-lg-12">
-									<div class="card p-3">
-										<div class="d-flex align-items-center">
-											<span class="stamp stamp-md bg-blue mr-3"> <i class="fa fa-user-md"></i>
-											</span>
-											<div>
-												<h4 class="m-0">
-													<a href="viewAdmits" class="btn btn-info" style="width: 110px;" id="mailReport"> View admits<small></small>
-													</a>
-												</h4>
-												<small class="text-muted"></small>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<div class="col-sm-12 col-lg-12">
-									<div class="card p-3">
-										<div class="d-flex align-items-center">
-											<span class="stamp stamp-md bg-blue mr-3"> <i class="fa fa-user-md"></i>
-											</span>
-											<div>
-												<h4 class="m-0">
-													<a href="viewDoctors" class="btn btn-info" style="width: 110px;" id="mailReport"> See patients<small></small>
-													</a>
-												</h4>
-												<small class="text-muted"></small>
-											</div>
-										</div>
-									</div>
-								</div>
-								
-								<div class="col-sm-12 col-lg-12">
-									<div class="card p-3">
-										<div class="d-flex align-items-center">
-											<span class="stamp stamp-md bg-blue mr-3"> <i class="fa fa-user-md"></i>
-											</span>
-											<div>
-												<h4 class="m-0">
-													<a href="viewDoctors" class="btn btn-info" style="width: 110px;" id="mailReport"> Release patient<small></small>
-													</a>
-												</h4>
-												<small class="text-muted"></small>
-											</div>
-										</div>
-									</div>
-								</div>
-
-
-
-
-
-							</div>
-
-
-
-						</div>
-
-					</div>
+					<%@ include file="layouts/patient-navigation.jsp" %>
 
 					<div class="col-lg-6">
 						<div class="container-fluid">
@@ -134,8 +52,8 @@
 										<div class="row">
 											<div class="col-md-5">
 												<div class="form-group">
-													<label class="form-label">Ward Name</label> <select name="ward_no" id="ward-name" class="form-control">
-													<option value=""></option>
+													<label class="form-label">Ward Name</label> <select name="ward_no" id="ward-name" class="form-control" required>
+													<option value="" ></option>
 														<s:iterator value="wardList">
 															<option value="<s:property value=" w_id" />">
 															<s:property value="w_name" />
@@ -147,7 +65,7 @@
 											</div>
 											<div class="col-sm-6 col-md-3">
 												<div class="form-group">
-													<label class="form-label">Patient name</label> <select name="p_id" class="form-control">
+													<label class="form-label">Patient name</label> <select name="p_id" class="form-control" required>
 													<option value=""></option>
 														<s:iterator value="patientList">
 															<option value="<s:property value=" patient_id" />">
@@ -161,7 +79,7 @@
 											<div class="col-sm-6 col-md-3">
 												<div class="form-group">
 													<label class="form-label">Room price</label> 
-													<input id="room_price" class="form-control"  readonly/>
+													<input id="room_price" class="form-control"  readonly required/>
 													<input name="avl_room_count" id="room_count" hidden/>
 												</div>
 											</div>
@@ -172,20 +90,20 @@
 											<div class="col-md-12">
 												<div class="form-group">
 													<label class="form-label">Reason</label>
-													<textarea rows="" cols="" name="reason" class="form-control"></textarea>
+													<textarea rows="" cols="" name="reason" class="form-control" required></textarea>
 												</div>
 											</div>
 
 											<div class="col-md-12">
 												<div class="form-group">
 													<label class="form-label">Special notes</label>
-													<textarea rows="" cols="" name="special_notes" class="form-control"></textarea>
+													<textarea rows="" cols="" name="special_notes" class="form-control" required></textarea>
 												</div>
 											</div>
 
 											<div class="col-md-6">
 												<div class="form-group">
-													<label class="form-label">Admit Date</label> <input id="datepicker" width="234" name="admit_date" readonly/>
+													<label class="form-label">Admit Date</label> <input id="datepicker" width="234" name="admit_date" readonly required/>
 													<script>
 														$('#datepicker')
 															.datepicker(
@@ -212,7 +130,7 @@
 
 											<div class="col-md-12">
 												<div class="form-group">
-													<label class="form-label">Doc Name</label> <select name="doc_name" class="form-control">
+													<label class="form-label">Doc Name</label> <select name="doc_name" class="form-control" required>
 														<s:iterator value="docList">
 															<option value="<s:property value="doc_name" />">
 															<s:property value="doc_name" />

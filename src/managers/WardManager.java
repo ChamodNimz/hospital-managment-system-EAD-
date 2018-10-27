@@ -122,6 +122,31 @@ public class WardManager {
 			return false;
 		}
 	}
+	
+		//get  room price list in this ward by id 
+
+		public static int getRoomPrice(int w_id) {
+
+			Configuration configuration = new Configuration().configure();
+
+			SessionFactory sessionFactory = configuration.buildSessionFactory();
+
+			Session session = sessionFactory.getCurrentSession();
+
+			Transaction transaction = session.beginTransaction();
+
+			String hql = "select price from Ward where w_id = :id ";
+			Query query = session.createQuery(hql);
+			query.setParameter("id", w_id);
+			List<Object[]> objectList = query.list();
+
+			Object p = objectList.get(0);
+			int price =  Math.round((float)p);
+
+			transaction.commit();
+			session.close();
+			return price ;
+		}
 
 
 }

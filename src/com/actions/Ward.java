@@ -117,7 +117,7 @@ public class Ward extends ActionSupport {
 		Validater  validater = new Validater();
 		
 		//validate w_name
-		if(!validater.nameIsValid(w_name)) {
+		if(!validater.isOnlyLetters(w_name)) {
 			addFieldError("w_name",validater.getError());
 			return false;
 		}

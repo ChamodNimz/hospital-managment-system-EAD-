@@ -194,7 +194,7 @@ public class Admit extends ActionSupport {
 			WardManager.updateAvailableRoomCount(ward_no,avl_room_count);
 			
 			//update patient admit flag
-			PatientManager.updateAdmitFlag(p_id);
+			PatientManager.updateAdmitFlag(p_id,1);
 			
 			if(AdmitManager.admitPatient(this)) {
 				this.message="This patient is successfully admitted .. !";
@@ -206,11 +206,54 @@ public class Admit extends ActionSupport {
 			
 		}
 		
+		
+		// view admit list
 		public String viewAdmits() {
 			
 			this.admitList=AdmitManager.getAdmits();
 			return SUCCESS;
 		}
+		
+		//get patient release data to patient release pages
+		public String patientReleaseData() {
+			
+			this.patientList=PatientManager.getAdmittedPatients();
+			return SUCCESS;
+		}
+		
+		//get patient details to release this patient ajax call 
+		public void getPatientDetails() {
+			
+			HttpServletResponse response = ServletActionContext.getResponse();
+			response.setContentType("application/json");
+			PrintWriter out;
+			
+			ArrayList<String> list = AdmitManager.getPatientDetails(p_id);
+			
+			int  roomPrice = WardManager.getRoomPrice(Integer.parseInt(list.get(2)));
+			list.add(Integer.toString(roomPrice));
+			
+			String json = new Gson().toJson(list);// google json object
+			try {
+				out = response.getWriter();
+				out.println(json);
+				out.flush();
+			} catch (IOException e) {
+				
+				e.printStackTrace();
+			}
+		}
+		
+		public String releasePatientProcess() {
+			
+			//update release date in admits table
+			AdmitManager.updateReleaseDate(release_date,p_id);
+			
+			//set patient admit flag to 2 to make the patient completely off the system bu keep data
+			PatientManager.updateAdmitFlag(p_id,2);
+			return SUCCESS;
+		}
+		
 	
 	
 }

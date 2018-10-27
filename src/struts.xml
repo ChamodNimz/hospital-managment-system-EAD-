@@ -3,6 +3,8 @@
 
 <struts>
 	<package name="com.actions" extends="struts-default">
+	
+
 
 		<action name="adminLogin" class="com.actions.Admin">
 			<result name="success">admin/index.jsp</result>
@@ -39,7 +41,8 @@
 		</action>
 
 
-		<!-- doctor section -->
+		<!-- doctor section ==================================================================================================== -->
+		
 		
 		<!-- add doctor calls default execute method -->
 		<action name="addDoctor" class="com.actions.Doctor">
@@ -47,6 +50,7 @@
 			<result name="error">/error.jsp</result>
 			<result name="input">/admin/doctor-index.jsp</result>
 		</action>
+		
 		
 		<!-- get doctors details to view -->
 		<action name="viewDoctors" class="com.actions.Doctor" method="viewDoctors">
@@ -101,7 +105,22 @@
 			<result name="error">/error.jsp</result>
 		</action>
 		
+		<!-- release patient page load with data  -->
+		<action name="patientReleasePage" class="com.actions.Admit" method="patientReleaseData">
+			<result name="success">/admin/patient-release.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
 		
+		<!-- ajax call to get admitted patient detials for realse   -->
+		<action name="getPatientDetails" class="com.actions.Admit" method="getPatientDetails">
+			
+		</action>
+		
+		<!-- release patient update tables and save release data  -->
+		<action name="releasePatientProcess" class="com.actions.Admit" method="releasePatientProcess">
+			<result name="success">/admin/patient-release.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
 		
 		
 		

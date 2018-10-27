@@ -121,7 +121,7 @@ public class Validater {
 	//isNumber 
 	public boolean isNumber(String input) {
 		
-		String pattern="^[\\d]{3}$";
+		String pattern="^[\\d]{1,3}$";
 		Pattern obj = Pattern.compile(pattern);
 		Matcher matcher = obj.matcher(input);
 		
