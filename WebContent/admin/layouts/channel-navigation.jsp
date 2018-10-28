@@ -10,12 +10,13 @@
 									<div class="card p-3">
 										<div class="d-flex align-items-center">
 											<span class="stamp stamp-md bg-blue mr-3"> <i
-												class="fa fa-edit"></i>
+												class="fe fe-activity"></i>
 											</span>
 											<div>
 												<h4 class="m-0">
-													<a href="ward-index.jsp" class="btn btn-info"
-														style="width: 110px;" id="mailReport"> Add ward<small></small>
+													<a href="channelGetDoctors" class="btn btn-info" style="width: 100px;"
+														id="mailReport">
+														Channel<small></small>
 													</a>
 												</h4>
 												<small class="text-muted"></small>
@@ -28,12 +29,13 @@
 									<div class="card p-3">
 										<div class="d-flex align-items-center">
 											<span class="stamp stamp-md bg-blue mr-3"> <i
-												class="fa fa-list"></i>
+												class="fa fa-user-md"></i>
 											</span>
 											<div>
 												<h4 class="m-0">
-													<a href="viewWards" class="btn btn-info"
-														style="width: 110px;" id="mailReport"> View wards<small></small>
+													<a href="viewChannels" class="btn btn-info" style="width: 100px;"
+														id="mailReport">
+														View <small></small>
 													</a>
 												</h4>
 												<small class="text-muted"></small>
@@ -42,7 +44,10 @@
 									</div>
 								</div>
 
+
 							</div>
+
+
 
 						</div>
 

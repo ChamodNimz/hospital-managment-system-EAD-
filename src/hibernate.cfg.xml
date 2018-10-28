@@ -28,6 +28,7 @@
 		<mapping resource="com/actions/Patient.hbm.xml" />
 		<mapping resource="com/actions/Admit.hbm.xml" />
 		<mapping resource="models/PatientRelease.hbm.xml" />
+		<mapping resource="com/actions/Channel.hbm.xml" />
 		
 	</session-factory>
 </hibernate-configuration>

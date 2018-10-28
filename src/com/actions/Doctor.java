@@ -18,6 +18,7 @@ public class Doctor extends ActionSupport implements SessionAware{
 	private String telephone;
 	private String email;
 	private String time;
+	private int apt_count;
 
 
 	// special properties
@@ -27,10 +28,19 @@ public class Doctor extends ActionSupport implements SessionAware{
 	
 
 	// normal properties getters and setters
+	
 	public String getTime() {
 		return time;
 	}
 	
+	public int getApt_count() {
+		return apt_count;
+	}
+
+	public void setApt_count(int apt_count) {
+		this.apt_count = apt_count;
+	}
+
 	public void setTime(String time) {
 		this.time = time;
 	}
@@ -113,6 +123,7 @@ public class Doctor extends ActionSupport implements SessionAware{
 		
 		if(validation()) {
 
+			this.apt_count=0;
 			DoctorManager.addDoctor(this);
 			this.message="Doctor enterd successfully ... ";
 			return SUCCESS;

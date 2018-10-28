@@ -31,6 +31,11 @@
 		<property name="time">
 			<column name="time" length="20" not-null="true" />
 		</property>
+		
+		<property name="apt_count">
+			<column name="apt_count"  not-null="true" />
+		</property>
+		
 
 
 

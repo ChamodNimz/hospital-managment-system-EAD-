@@ -1,5 +1,7 @@
 package com.actions;
 
+import java.util.List;
+
 import com.opensymphony.xwork2.ActionSupport;
 
 import frm.helpers.Validater;
@@ -17,10 +19,21 @@ public class Ward extends ActionSupport {
 	
 	// special properties
 	private String message;
+	private List<Ward> wardList;
 
 
 	public int getW_id() {
 		return w_id;
+	}
+
+
+	public List<Ward> getWardList() {
+		return wardList;
+	}
+
+
+	public void setWardList(List<Ward> wardList) {
+		this.wardList = wardList;
 	}
 
 
@@ -129,6 +142,15 @@ public class Ward extends ActionSupport {
 		return true;
 	}
 
+	/*
+	 * get wards
+	 * 			  to view 
+	 */
+	public String getWards() {
+		
+		this.wardList = WardManager.getWards();
+		return SUCCESS;
+	}
 
 	@Override
 	public void addFieldError(String fieldName, String errorMessage) {

@@ -249,7 +249,7 @@
 												</span>
 												<div>
 													<h4 class="m-0">
-														<a href="javascript:void(0)">Channel <small></small></a>
+														<a href="channelGetDoctors">Channel <small></small></a>
 													</h4>
 													<small class="text-muted"></small>
 												</div>

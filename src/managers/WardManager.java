@@ -10,6 +10,7 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
 
 import com.actions.Admit;
+import com.actions.Channel;
 import com.actions.Ward;
 
 public class WardManager {
@@ -146,6 +147,30 @@ public class WardManager {
 			transaction.commit();
 			session.close();
 			return price ;
+		}
+		
+		/*
+		 * get ward llist to view 
+		 * 
+		 */
+		public static List<Ward> getWards() {
+			
+			Configuration configuration = new Configuration().configure();
+			
+			SessionFactory sessionFactory = configuration.buildSessionFactory();
+			
+			Session session = sessionFactory.getCurrentSession();
+
+			Transaction transaction = session.beginTransaction();
+			
+			String hql="from Ward";
+			Query query = session.createQuery(hql);
+			List<Ward> list = query.list();
+			
+			transaction.commit();
+			session.close();
+			
+			return list;
 		}
 
 

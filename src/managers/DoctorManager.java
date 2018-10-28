@@ -136,4 +136,66 @@ public class DoctorManager {
 		session.close();
 		return docList;
 	}
+	
+	/*
+	 * get 
+	 * 		specialty
+	 * 		time	
+	 * 		apt_count 
+	 * 
+	 * 	for channel a  doctor
+	 */
+	
+public static ArrayList<String> getDocChannelDetails(int id ){
+		
+		Configuration configuration = new Configuration().configure();
+		
+		SessionFactory sessionFactory = configuration.buildSessionFactory();
+		
+		Session session = sessionFactory.getCurrentSession();
+
+		Transaction transaction = session.beginTransaction();
+		
+		String hql="select doc_specialty, time, apt_count  from Doctor where doc_id=:id";
+		Query query = session.createQuery(hql);
+		query.setParameter("id",id);
+		List<Object[]> objectList = query.list();
+		
+		ArrayList<String> docDetails = new ArrayList<String>();
+		
+		//create Doc list
+		for(Object[] obj:objectList) {
+			docDetails.add((String)obj[0]);
+			docDetails.add((String)obj[1]);
+			docDetails.add(Integer.toString((int)obj[2]));
+		}
+		transaction.commit();
+		session.close();
+		return docDetails;
+	}
+
+	/*
+	 * update doctor's appointment count when a channel occurs
+	 * 
+	 */
+	public static void updateAptCount(int apt_count,int doc_id) {
+		
+		Configuration configuration = new Configuration().configure();
+		
+		SessionFactory sessionFactory = configuration.buildSessionFactory();
+		
+		Session session = sessionFactory.getCurrentSession();
+
+		Transaction transaction = session.beginTransaction();
+		
+		String hql ="update Doctor set apt_count= :count where doc_id =:doc_id ";
+		Query query = session.createQuery(hql);
+		query.setParameter("count",apt_count+1);
+		query.setParameter("doc_id",doc_id);
+		query.executeUpdate();
+		transaction.commit();
+		session.close();
+	}
+
+
 }

@@ -140,6 +140,37 @@
 			<result name="error">/error.jsp</result>
 			<result name="input">/admin/ward-index.jsp</result>
 		</action>
+		
+		<!-- view  wards    -->
+		<action name="viewWards" class="com.actions.Ward" method="getWards">
+			<result name="success">/admin/ward-view.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		<!-- channel section start =================================================================================================  -->
+		
+		<!-- get doctor list on channel page  -->
+		<action name="channelGetDoctors" class="com.actions.Channel" method="getInitDetails">
+			<result name="success">/admin/channel-doctor.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
 
+		<!-- ajax call to get channel doc details   -->
+		<action name="getSelectedDocAjax" class="com.actions.Channel" method="getSelectedDocAjax">
+			
+		</action>
+		
+		<!-- add channel    -->
+		<action name="channelDoctor" class="com.actions.Channel" method="addAppointment">
+			<result name="success">/admin/channel-doctor.jsp</result>
+			<result name="error">/error.jsp</result>
+			<result name="input">/admin/channel-doctor.jsp</result>
+		</action>
+		
+		<!-- view  channels    -->
+		<action name="viewChannels" class="com.actions.Channel" method="viewChannels">
+			<result name="success">/admin/channel-view.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		
 	</package>
 </struts>
