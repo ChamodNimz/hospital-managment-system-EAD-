@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 27, 2018 at 05:49 PM
+-- Generation Time: Oct 28, 2018 at 10:03 AM
 -- Server version: 5.7.14
 -- PHP Version: 7.0.10
 
@@ -55,7 +55,7 @@ CREATE TABLE `admits` (
 --
 
 INSERT INTO `admits` (`ref_no`, `ward_no`, `p_id`, `reason`, `special_notes`, `admit_date`, `release_date`, `floor_no`, `doc_name`) VALUES
-(36, 1, 3, 'saddasd', 'dsadd', '2018-10-16', NULL, 1, 'Dr Doluweera'),
+(36, 1, 3, 'saddasd', 'dsadd', '2018-10-16', '2018-10-28', 1, 'Dr Doluweera'),
 (38, 1, 6, 'asas', 'asasa', '2018-10-10', '2018-10-27', 1, 'Dr Keerthi Alwis'),
 (39, 1, 8, 'sss', 'sssss', '2018-10-17', NULL, 1, 'Dr Doluweera');
 
@@ -67,12 +67,21 @@ INSERT INTO `admits` (`ref_no`, `ward_no`, `p_id`, `reason`, `special_notes`, `a
 
 CREATE TABLE `channellings` (
   `channel_id` int(11) NOT NULL,
-  `date` date NOT NULL,
-  `desease_type` varchar(40) NOT NULL,
-  `doc_name` varchar(30) NOT NULL,
   `doc_id` int(11) NOT NULL,
-  `hospital` varchar(100) NOT NULL
+  `date` date NOT NULL,
+  `desease_type` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `channellings`
+--
+
+INSERT INTO `channellings` (`channel_id`, `doc_id`, `date`, `desease_type`) VALUES
+(1, 16, '2018-10-10', 'dfdf'),
+(2, 10, '2018-10-10', 'jjj'),
+(3, 14, '2018-10-11', 'dss asffd'),
+(11, 9, '2018-10-03', 'hhh'),
+(12, 10, '2018-10-10', 'xxxx');
 
 -- --------------------------------------------------------
 
@@ -86,19 +95,22 @@ CREATE TABLE `doctors` (
   `doc_specialty` varchar(40) NOT NULL,
   `telephone` varchar(12) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `time` time NOT NULL
+  `time` time NOT NULL,
+  `apt_count` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `doctors`
 --
 
-INSERT INTO `doctors` (`doc_id`, `doc_name`, `doc_specialty`, `telephone`, `email`, `time`) VALUES
-(9, 'Dr Doluweera', 'cardiologist', '0712221111', 'asdC@gail.com', '08:30:00'),
-(10, 'Dr Keerthi Alwis', 'cardiologist', '0712221111', 'Keersthix@gmail.com', '11:01:00'),
-(14, 'Dr Dananjaya', 'Hematologist', '0712227777', 'chamodnimsaradx@gmail.com', '08:30:00'),
-(16, 'Dr muunasinghe', 'cardiologist', '1231231231', 'munashinge@gmail.com', '12:30:00'),
-(20, 'Dr Dananjaya eeee', 'cardiologist', '0112755257', 'asdC@gail.com', '15:00:00');
+INSERT INTO `doctors` (`doc_id`, `doc_name`, `doc_specialty`, `telephone`, `email`, `time`, `apt_count`) VALUES
+(9, 'Dr someonw', 'cardiologist', '0712221133', 'asdC@gail.com', '08:30:00', 0),
+(10, 'Dr Keerthi Alwis', 'cardiologist', '0712221111', 'Keersthix@gmail.com', '11:01:00', 91),
+(14, 'Dr Dananjaya', 'Hematologist', '0712227777', 'chamodnimsaradx@gmail.com', '08:30:00', 0),
+(16, 'Dr muunasinghe', 'cardiologist', '1231231231', 'munashinge@gmail.com', '12:30:00', 0),
+(20, 'Dr Dananjaya eeee', 'cardiologist', '0112755257', 'asdC@gail.com', '15:00:00', 0),
+(21, 'apt test doc', 'cardiologist', '1231231231', 'chamodnimsaradx@gmail.com', '09:00:00', 0),
+(22, 'vvvvv', 'cardiologist', '0712221111', 'chamodnimsaradx@gmail.com', '12:00:00', 0);
 
 -- --------------------------------------------------------
 
@@ -125,7 +137,7 @@ CREATE TABLE `patient` (
 --
 
 INSERT INTO `patient` (`patient_id`, `p_address`, `p_nic`, `p_gender`, `password`, `telephone`, `p_fname`, `p_lname`, `email`, `reg_date`, `admit_flag`) VALUES
-(3, 'vbvbvbvb', 'bvbvb', 'bvb', 'vbvb', 'vbvbv', 'vbvb', 'vbvbv', 'vbbvb', '2018-10-02', 1),
+(3, 'vbvbvbvb', 'bvbvb', 'bvb', 'vbvb', 'vbvbv', 'vbvb', 'vbvbv', 'vbbvb', '2018-10-02', 2),
 (6, 'cxc', 'xcxcxc', 'male', 'xxcc', '0712221111', 'xcx', 'cxcx', 'chamodnimsara@gmail.com', '2018-10-27', 2),
 (7, '221/b/backers street ', '123123123v', 'male', '123', '0112755257', 'official patient', 'lastname', 'chamodnimsaradx@gmail.com', '2018-10-27', 1),
 (8, 'zzzz', 'zzzzz', 'male', 'zzzz', '1231231231', 'zzzz', 'zzzz', 'chamodnimsara@gmail.com', '2018-10-27', 1),
@@ -148,7 +160,8 @@ CREATE TABLE `patient_releases` (
 --
 
 INSERT INTO `patient_releases` (`id`, `p_id`, `total`) VALUES
-(5, 6, 595000);
+(5, 6, 595000),
+(6, 3, 420000);
 
 -- --------------------------------------------------------
 
@@ -181,12 +194,7 @@ INSERT INTO `tests` (`t_id`, `test_name`, `date`, `f_name`, `l_name`, `telephone
 (10, 'CAT Scan', '2018-10-20', 'Chamod', 'asdsd', '0112755257', 12000, 'chamodnimsaradx@gmail.com', 0, 0),
 (11, 'Blood test', '2018-10-20', 'asdsad', 'XZX', '0112755257', 1500, 'asdC@gail.com', 0, 0),
 (13, 'Blood test', '2018-10-20', 'asdsad', 'asdsa', '0712221111', 1500, 'chamodnimsaradx@gmail.com', 0, 0),
-(14, 'ECG', '2018-10-20', 'Chamod', 'Nimsara', '0712221111', 4000, 'chamodnimsaradx@gmail.com', 1, 1),
-(15, 'Blood test', '2018-10-23', 'Chamod', 'Nimsara', '0712221111', 1500, 'asdC@gail.com', 0, 0),
-(16, 'ECG', '2018-10-25', 'Chamod', 'Nimsara', '0712221111', 4000, 'chamodnimsaradx@gmail.com', 1, 1),
-(17, 'ECG', '2018-10-25', 'dd', 'dd', '0712221111', 4000, 'doluweera@gail.com', 1, 1),
-(18, 'CAT Scan', '2018-10-27', 'test', 'test', '1233211231', 12000, 'asdC@gail.com', 1, 1),
-(19, 'CAT Scan', '2018-10-27', 'test', 'test', '1233211231', 12000, 'asdC@gail.com', 1, 1);
+(14, 'ECG', '2018-10-20', 'Chamod', 'Nimsara', '0712221111', 4000, 'chamodnimsaradx@gmail.com', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -234,8 +242,7 @@ ALTER TABLE `admits`
 -- Indexes for table `channellings`
 --
 ALTER TABLE `channellings`
-  ADD PRIMARY KEY (`channel_id`),
-  ADD UNIQUE KEY `doc_id` (`doc_id`);
+  ADD PRIMARY KEY (`channel_id`);
 
 --
 -- Indexes for table `doctors`
@@ -285,12 +292,12 @@ ALTER TABLE `admits`
 -- AUTO_INCREMENT for table `channellings`
 --
 ALTER TABLE `channellings`
-  MODIFY `channel_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `channel_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `doctors`
 --
 ALTER TABLE `doctors`
-  MODIFY `doc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `doc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT for table `patient`
 --
@@ -300,12 +307,12 @@ ALTER TABLE `patient`
 -- AUTO_INCREMENT for table `patient_releases`
 --
 ALTER TABLE `patient_releases`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `tests`
 --
 ALTER TABLE `tests`
-  MODIFY `t_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `t_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT for table `ward`
 --
