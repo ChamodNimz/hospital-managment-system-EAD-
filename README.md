@@ -13,7 +13,7 @@ hospital management system for javaEE application development module
        * Apache tom-cat web server
        * Eclipse Photon IDE
        * Some plugins
-       
+       * Java EE Application
        
   - functionalities provided
       
