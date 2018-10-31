@@ -21,7 +21,7 @@ hospital management system for javaEE application development module
       * Channeling a doctor.
       * Services provides  such as blood and other tests.
       * All CRUDs for every module.
-      * Reporting and Analitics. 
+      * Reporting and Analytics. 
       * Dashboard based Application.
       * Pretty GUI.
       * Easy/more user friendly way.
