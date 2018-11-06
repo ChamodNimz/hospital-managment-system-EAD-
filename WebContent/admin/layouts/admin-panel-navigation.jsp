@@ -53,7 +53,7 @@
 						<div class="dropdown-divider"></div>
 						<a class="dropdown-item" href="#"> <i
 							class="dropdown-icon fe fe-help-circle"></i> Need help?
-						</a> <a class="dropdown-item" href="login.jsp"> <i
+						</a> <a class="dropdown-item" href="logOut"> <i
 							class="dropdown-icon fe fe-log-out"></i> Sign out
 						</a>
 					</div>

@@ -3,14 +3,41 @@
 
 <struts>
 	<package name="com.actions" extends="struts-default">
-	
-		<action name="login" class="com.actions.Admin" method="validateLogin">
+
+		<interceptors>
+			<interceptor class="com.interceptors.LoginInterceptor"
+				name="loginInterceptor">
+			</interceptor>
+			<interceptor-stack name="loginStack">
+				<interceptor-ref name="loginInterceptor" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+
+		<global-results>
+			<result name="login">/admin/login.jsp</result>
+		</global-results>
+
+		<action name="getDashboard">
+			<interceptor-ref name="loginStack" />
+			<result name="success">/admin/index.jsp</result>
+		</action>
+
+		<!-- login action -->
+		<action name="login" class="com.actions.Admin"
+			method="validateLogin">
 			<result name="success">/admin/index.jsp</result>
 			<result name="error">/admin/404.html</result>
 			<result name="input">/admin/login.jsp</result>
 		</action>
-		
-<!-- test section ==================================================================================================== -->
+
+		<!-- logout action -->
+		<action class="com.actions.Admin"
+			name="logOut" method="logOut">
+			<result name="success">/admin/login.jsp</result>
+		</action>
+
+		<!-- test section ==================================================================================================== -->
 		<action name="patientRegister" class="com.actions.Patient">
 			<result name="success">admin/admin-dashboard.jsp</result>
 			<result name="error">/error.jsp</result>
@@ -41,135 +68,152 @@
 
 
 		<!-- doctor section ==================================================================================================== -->
-		
-		
+
+
 		<!-- add doctor calls default execute method -->
 		<action name="addDoctor" class="com.actions.Doctor">
 			<result name="success">/admin/doctor-index.jsp</result>
 			<result name="error">/error.jsp</result>
 			<result name="input">/admin/doctor-index.jsp</result>
 		</action>
-		
-		
+
+
 		<!-- get doctors details to view -->
-		<action name="viewDoctors" class="com.actions.Doctor" method="viewDoctors">
+		<action name="viewDoctors" class="com.actions.Doctor"
+			method="viewDoctors">
 			<result name="success">/admin/doctor-view.jsp</result>
 			<result name="error">/error.jsp</result>
 			<result name="input">/admin/doctor-view.jsp</result>
 		</action>
-		
+
 		<!-- updateDoctor call to pass doc ID to actionclass -->
-		<action name="updateDoctor" class="com.actions.Doctor" method="getDoctorById">
+		<action name="updateDoctor" class="com.actions.Doctor"
+			method="getDoctorById">
 			<result name="success">/admin/doctor-update.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
-		
+
 		<!-- process update of a doctor -->
-		<action name="updateDoctor-process" class="com.actions.Doctor" method="updateDoctor">
+		<action name="updateDoctor-process" class="com.actions.Doctor"
+			method="updateDoctor">
 			<result name="success">/admin/doctor-view.jsp</result>
 			<result name="error">/error.jsp</result>
 			<result name="input">/admin/doctor-update.jsp</result>
 		</action>
-		
-		<!-- remove  a doctor -->
-		<action name="removeDoctor" class="com.actions.Doctor" method="removeDoctor">
+
+		<!-- remove a doctor -->
+		<action name="removeDoctor" class="com.actions.Doctor"
+			method="removeDoctor">
 			<result name="success">/admin/doctor-view.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
-		
-		
+
+
 		<!-- patient section ==================================================================================================== -->
-		<!-- register patient  -->
-		<action name="registerPatient" class="com.actions.Patient" method="registerPatient">
+		<!-- register patient -->
+		<action name="registerPatient" class="com.actions.Patient"
+			method="registerPatient">
 			<result name="success">/admin/patient-index.jsp</result>
 			<result name="input">/admin/patient-register.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
-		
-		
-		<!-- admit section start  -->
 
-		<!-- get AdmitDetails to fill the drop downs   -->
-		<action name="getAdmitDetails" class="com.actions.Admit" method="getAdmitDetails">
+
+		<!-- admit section start -->
+
+		<!-- get AdmitDetails to fill the drop downs -->
+		<action name="getAdmitDetails" class="com.actions.Admit"
+			method="getAdmitDetails">
 			<result name="success">/admin/patient-index.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
-		
-		<!-- admit a patient   -->
-		<action name="admitPatient" class="com.actions.Admit" method="admitPatient">
+
+		<!-- admit a patient -->
+		<action name="admitPatient" class="com.actions.Admit"
+			method="admitPatient">
 			<result name="success">/admin/patient-index.jsp</result>
 			<result name="error">/error.jsp</result>
 			<result name="input">/admin/patient-index.jsp</result>
 		</action>
-		
-		<!-- ajax call to get chart data and availability of a ward   -->
-		<action name="getAvailabilityDetails" class="com.actions.Admit" method="getAvailabilityDetails">
-			
+
+		<!-- ajax call to get chart data and availability of a ward -->
+		<action name="getAvailabilityDetails" class="com.actions.Admit"
+			method="getAvailabilityDetails">
+
 		</action>
-		
-		<!-- view admits   -->
-		<action name="viewAdmits" class="com.actions.Admit" method="viewAdmits">
+
+		<!-- view admits -->
+		<action name="viewAdmits" class="com.actions.Admit"
+			method="viewAdmits">
 			<result name="success">/admin/patient-viewAdmits.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
-		
-		<!-- release patient page load with data  -->
-		<action name="patientReleasePage" class="com.actions.Admit" method="patientReleaseData">
+
+		<!-- release patient page load with data -->
+		<action name="patientReleasePage" class="com.actions.Admit"
+			method="patientReleaseData">
 			<result name="success">/admin/patient-release.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
-		
-		<!-- ajax call to get admitted patient detials for realse   -->
-		<action name="getPatientDetails" class="com.actions.Admit" method="getPatientDetails">
-			
+
+		<!-- ajax call to get admitted patient detials for realse -->
+		<action name="getPatientDetails" class="com.actions.Admit"
+			method="getPatientDetails">
+
 		</action>
-		
-		<!-- release patient update tables and save release data  -->
-		<action name="releasePatientProcess" class="com.actions.Admit" method="releasePatientProcess">
+
+		<!-- release patient update tables and save release data -->
+		<action name="releasePatientProcess" class="com.actions.Admit"
+			method="releasePatientProcess">
 			<result name="success">/admin/patient-release.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
-		
-		
-		
-		<!-- ward section start  -->
-		<!-- add a ward   -->
+
+
+
+		<!-- ward section start -->
+		<!-- add a ward -->
 		<action name="addWard" class="com.actions.Ward">
 			<result name="success">/admin/ward-index.jsp</result>
 			<result name="error">/error.jsp</result>
 			<result name="input">/admin/ward-index.jsp</result>
 		</action>
-		
-		<!-- view  wards    -->
-		<action name="viewWards" class="com.actions.Ward" method="getWards">
+
+		<!-- view wards -->
+		<action name="viewWards" class="com.actions.Ward"
+			method="getWards">
 			<result name="success">/admin/ward-view.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
-		<!-- channel section start =================================================================================================  -->
-		
-		<!-- get doctor list on channel page  -->
-		<action name="channelGetDoctors" class="com.actions.Channel" method="getInitDetails">
+		<!-- channel section start ================================================================================================= -->
+
+		<!-- get doctor list on channel page -->
+		<action name="channelGetDoctors" class="com.actions.Channel"
+			method="getInitDetails">
 			<result name="success">/admin/channel-doctor.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
 
-		<!-- ajax call to get channel doc details   -->
-		<action name="getSelectedDocAjax" class="com.actions.Channel" method="getSelectedDocAjax">
-			
+		<!-- ajax call to get channel doc details -->
+		<action name="getSelectedDocAjax" class="com.actions.Channel"
+			method="getSelectedDocAjax">
+
 		</action>
-		
-		<!-- add channel    -->
-		<action name="channelDoctor" class="com.actions.Channel" method="addAppointment">
+
+		<!-- add channel -->
+		<action name="channelDoctor" class="com.actions.Channel"
+			method="addAppointment">
 			<result name="success">/admin/channel-doctor.jsp</result>
 			<result name="error">/error.jsp</result>
 			<result name="input">/admin/channel-doctor.jsp</result>
 		</action>
-		
-		<!-- view  channels    -->
-		<action name="viewChannels" class="com.actions.Channel" method="viewChannels">
+
+		<!-- view channels -->
+		<action name="viewChannels" class="com.actions.Channel"
+			method="viewChannels">
 			<result name="success">/admin/channel-view.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
-		
+
 	</package>
 </struts>
