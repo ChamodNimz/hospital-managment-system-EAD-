@@ -53,7 +53,7 @@
 						<div class="dropdown-divider"></div>
 						<a class="dropdown-item" href="#"> <i
 							class="dropdown-icon fe fe-help-circle"></i> Need help?
-						</a> <a class="dropdown-item" href="#"> <i
+						</a> <a class="dropdown-item" href="login.jsp"> <i
 							class="dropdown-icon fe fe-log-out"></i> Sign out
 						</a>
 					</div>
@@ -84,45 +84,51 @@
 						class="nav-link active"><i class="fe fe-home"></i> Home</a></li>
 					<li class="nav-item"><a href="javascript:void(0)"
 						class="nav-link" data-toggle="dropdown"><i class="fe fe-box"></i>
-							Interface</a>
+							Doctors</a>
 						<div class="dropdown-menu dropdown-menu-arrow">
-							<a href="./cards.html" class="dropdown-item ">Cards design</a> <a
-								href="./charts.html" class="dropdown-item ">Charts</a> <a
-								href="./pricing-cards.html" class="dropdown-item ">Pricing
-								cards</a>
+							<a href="./cards.html" class="dropdown-item ">Add doctor</a> 
+							<a
+								href="./charts.html" class="dropdown-item ">View doctors</a> 
 						</div></li>
 					<li class="nav-item dropdown"><a href="javascript:void(0)"
 						class="nav-link" data-toggle="dropdown"><i
-							class="fe fe-calendar"></i> Components</a>
+							class="fe fe-calendar"></i> Tests</a>
 						<div class="dropdown-menu dropdown-menu-arrow">
-							<a href="./maps.html" class="dropdown-item ">Maps</a> <a
-								href="./icons.html" class="dropdown-item ">Icons</a> <a
-								href="./store.html" class="dropdown-item ">Store</a> <a
-								href="./blog.html" class="dropdown-item ">Blog</a>
+							<a href="./maps.html" class="dropdown-item ">Do test</a> <a
+								href="./icons.html" class="dropdown-item ">Invoice</a> <a
+								href="./store.html" class="dropdown-item ">Mail Report</a> 
 
 						</div></li>
 					<li class="nav-item dropdown"><a href="javascript:void(0)"
 						class="nav-link" data-toggle="dropdown"><i class="fe fe-file"></i>
-							Pages</a>
+							Patients</a>
 						<div class="dropdown-menu dropdown-menu-arrow">
-							<a href="./profile.html" class="dropdown-item ">Profile</a> <a
-								href="./login.html" class="dropdown-item ">Login</a> <a
-								href="./register.html" class="dropdown-item ">Register</a> <a
-								href="./forgot-password.html" class="dropdown-item ">Forgot
-								password</a> <a href="./400.html" class="dropdown-item ">400
-								error</a> <a href="./401.html" class="dropdown-item ">401 error</a>
-							<a href="./403.html" class="dropdown-item ">403 error</a> <a
-								href="./404.html" class="dropdown-item ">404 error</a> <a
-								href="./500.html" class="dropdown-item ">500 error</a> <a
-								href="./503.html" class="dropdown-item ">503 error</a> <a
-								href="./email.jsp" class="dropdown-item ">Email</a> <a
-								href="./empty.jsp" class="dropdown-item ">Empty page</a> <a
-								href="./invoice.html" class="dropdown-item ">invoice</a> <a
-								href="./form-elements.html" class="dropdown-item ">forms</a>
+							<a href="./profile.html" class="dropdown-item ">Register patient</a> <a
+								href="./login.html" class="dropdown-item ">Admit patient</a> <a
+								href="./register.html" class="dropdown-item ">View admits</a>
+								 <a href="./400.html" class="dropdown-item ">Release patient
+								error</a> <a href="./401.html" class="dropdown-item ">See patient</a>
+							
 
 						</div></li>
-					<li class="nav-item dropdown"><a href="./form-elements.html"
-						class="nav-link"><i class="fe fe-check-square"></i> Forms</a></li>
+					<li class="nav-item dropdown"><a href="javascript:void(0)"
+						class="nav-link" data-toggle="dropdown"><i class="fe fe-file"></i>
+							Channel</a>
+						<div class="dropdown-menu dropdown-menu-arrow">
+							<a href="./profile.html" class="dropdown-item ">Channel </a> <a
+								href="./login.html" class="dropdown-item ">View all channels</a>
+							
+
+						</div></li>
+						
+						<li class="nav-item dropdown"><a href="javascript:void(0)"
+						class="nav-link" data-toggle="dropdown"><i class="fe fe-file"></i>
+							Wards</a>
+						<div class="dropdown-menu dropdown-menu-arrow">
+							<a href="./profile.html" class="dropdown-item ">Add wards</a> <a
+								href="./login.html" class="dropdown-item ">View wards</a>
+
+						</div></li>
 				</ul>
 			</div>
 		</div>

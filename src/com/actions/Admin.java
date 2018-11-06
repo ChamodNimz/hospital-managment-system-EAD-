@@ -2,8 +2,11 @@ package com.actions;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import managers.AdminManager;
+
 public class Admin extends ActionSupport {
 	
+	private int adminId;
 	private String username;
 	private String password;
 
@@ -24,8 +27,14 @@ public class Admin extends ActionSupport {
 		this.password = password;
 	}
 	
-	
-	
+	public int getAdminId() {
+		return adminId;
+	}
+
+	public void setAdminId(int adminId) {
+		this.adminId = adminId;
+	}
+
 	@Override
 	public void validate() {
 		
@@ -45,12 +54,22 @@ public class Admin extends ActionSupport {
 
 	//execution
 	public String execute() {
-		System.out.println("username: "+username);
-		System.out.println("username: "+password);
 		
 		return SUCCESS;
 	}
 
+	//validate login
+	public String validateLogin() {
 	
+		if(AdminManager.isValidUser(username, password)) {
+			return SUCCESS;
+		}
+		else {
+			addFieldError("username","Invalid Username/password");
+			addFieldError("password","Invalid Username/password");
+			return INPUT;
+		}
+		
+	}
 
 }

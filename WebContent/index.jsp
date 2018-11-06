@@ -43,7 +43,7 @@
 								<li><a href="services.html">Services</a></li>
 								<li><a href="news.html">News</a></li>
 								<li><a href="contact.html">Contact</a></li>
-								<li><a href="login.jsp">login</a></li>
+								<li><a href="admin/login.jsp">login</a></li>
 								<li><a href="patient/patientRegistration.jsp">Register</a></li>
 
 								<li class="call-btn button gradient-bg mt-3 mt-md-0"><a
