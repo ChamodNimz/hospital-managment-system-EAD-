@@ -26,3 +26,5 @@ hospital management system for javaEE application development module
       * Pretty GUI.
       * Easy/more user friendly way.
        
+
+<img src="https://github.com/ChamodNimz/hospital-managment-system-EAD-/blob/master/WebContent/admin/demo/other/lady-doc.png" alt="drawing" style="width:200px;height:200px"/>
