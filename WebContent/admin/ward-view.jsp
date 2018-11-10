@@ -101,7 +101,7 @@
 											<th>rooms</th>
 											<th>Available rooms</th>
 											<th>Price</th>
-											<th>Action</th>
+											
 										</tr>
 
 									</thead>
@@ -114,9 +114,7 @@
 												<td><s:property value="available_rooms" /></td>
 												<td><s:property value="price" /></td>				
 												<td>
-											<a class="btn btn-success btn-sm" href="updateDoctor?doc_id=<s:property value="doc_id" />">Update <i class="fa fa-edit"></i> </a>
-												
-											<a class="btn btn-danger btn-sm" href="removeDoctor?doc_id=<s:property value="doc_id" />">Delete <i class="fa fa-remove"></i></a></td>
+											
 											</tr>
 
 										</s:iterator>

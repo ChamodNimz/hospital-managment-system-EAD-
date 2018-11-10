@@ -49,6 +49,13 @@
 			<result name="error">/error.jsp</result>
 			<result name="input">/admin/tests.jsp</result>
 		</action>
+		
+		<!-- to get all test data to the table  -->
+		<action name="getAllTests" class="com.actions.Tests" method="getAllTests">
+			<result name="success">/admin/tests-invoiceResults.jsp</result>
+			<result name="error">/error.jsp</result>
+			<result name="input">/admin/tests.jsp</result>
+		</action>
 
 		<!-- fill data payment form for test-invoiceResult page -->
 		<action name="getTests" class="com.actions.Tests"

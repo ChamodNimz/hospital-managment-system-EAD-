@@ -80,6 +80,27 @@ public class TestsManager {
 		
 	}
 
+
+
+	/*
+	 * get all tests
+	 */
+	public static List<Tests> getTests(){
+		
+		Configuration configuration = new Configuration().configure();
+		SessionFactory sessionFactory = configuration.buildSessionFactory();		
+		Session session = sessionFactory.getCurrentSession();
+		Transaction transaction = session.beginTransaction();	
+		
+		String hql="from Tests where paid_flag=0";
+		Query query = session.createQuery(hql);
+		List<Tests> list = query.list();
+
+		return list;
+
+		
+	}
+
 	
 	
 }

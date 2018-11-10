@@ -30,12 +30,37 @@
 			<div class="container-fluid">
 				<div class="row row-cards">
 
-					<%@ include file="layouts/test-navigation.jsp" %>
+					<%@ include file="layouts/test-navigation.jsp"%>
 
 					<div class="col-lg-8">
 						<div class="container-fluid">
 							<div class="row row-cards">
 								<div class="card p-3" id="content-form">
+
+								 <div class="container" style="height:400px;overflow:scroll !important;">
+										<table class="table">
+											<thead>
+												<tr>
+													<th scope="col">Test ID</th>
+													<th scope="col">Date</th>
+													<th scope="col">First name</th>
+													<th scope="col">Status</th>
+												</tr>
+											</thead>
+											<tbody>
+											<s:iterator value="listTest">
+												<tr>
+													<th scope="row " class="table-dark"><s:property value="t_id"/> </th>
+													<td><s:property value="date"/></td>
+													<td><s:property value="f_name"/></td>
+													<td class="table-warning">Not paid yet</td>
+												</tr>
+												</s:iterator>
+											</tbody>
+										</table>
+									</div>
+
+
 									<form action="getTests" method="post">
 										<div class="col-sm-6 col-md-6">
 											<div class="form-group">

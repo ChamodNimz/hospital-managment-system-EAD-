@@ -100,7 +100,7 @@
 											<th>Doctor id</th>
 											<th>Date</th>
 											<th>Desease type</th>
-											<th>Action</th>
+										
 										</tr>
 
 									</thead>
@@ -111,10 +111,8 @@
 												<td><s:property value="doc_id" /></td>
 												<td><s:property value="date" /></td>
 												<td><s:property value="desease_type" /></td>			
-												<td>
-											<a class="btn btn-success btn-sm" href="updateDoctor?doc_id=<s:property value="doc_id" />">Update <i class="fa fa-edit"></i> </a>
 												
-											<a class="btn btn-danger btn-sm" href="removeDoctor?doc_id=<s:property value="doc_id" />">Delete <i class="fa fa-remove"></i></a></td>
+											
 											</tr>
 
 										</s:iterator>

@@ -34,7 +34,7 @@
 											</span>
 											<div>
 												<h4 class="m-0">
-													<a href="tests-invoiceResults.jsp" class="btn btn-info"
+													<a href="getAllTests" class="btn btn-info"
 														id="invoiceResults"> Invoice Results <small></small>
 													</a>
 												</h4>

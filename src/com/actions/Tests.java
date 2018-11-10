@@ -20,10 +20,18 @@ public class Tests extends ActionSupport {
 	
 	//special fields 
 	private List<Tests> list;
+	private List<Tests> listTest;
 	
 	//special getters and setters
+	
 	public List<Tests> getList() {
 		return list;
+	}
+	public List<Tests> getListTest() {
+		return listTest;
+	}
+	public void setListTest(List<Tests> listTest) {
+		this.listTest = listTest;
 	}
 	public void setList(List<Tests> list) {
 		this.list = list;
@@ -165,6 +173,16 @@ public class Tests extends ActionSupport {
 	public String  payForResults() {
 		
 		TestsManager.pay(t_id,paid_flag);
+		return SUCCESS;
+	}
+	
+	/*
+	 * get all tests to the invoice creation form 
+	 * 
+	 */
+	public String getAllTests() {
+		this.listTest = TestsManager.getTests();
+		
 		return SUCCESS;
 	}
 	
